@@ -1,0 +1,97 @@
+
+
+#idnews
+{
+  position: absolute;
+  left:30%;
+  background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: bold;
+  font-size: 100px;
+  font-family: arial, helvetica;
+  width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  top:0%;
+  color:black;
+  z-index: 3;
+}
+.objclass
+{
+  border:1px black solid;
+  z-index: 10;
+  background-color: #2ECC40;
+  transition: 0.5s;
+  opacity: 0.8 ;
+  -webkit-user-select: none;
+  line-height: 110px;
+ /* background-image: linear-gradient(to right, #0f0c29 , #3b8d99);*/
+}
+.objclass:hover
+{
+  background-color: #001f3f;
+  color: whitesmoke;
+  border: 1.5px #001f3f solid;
+  transition: 0.5s;
+  opacity:1;
+  z-index:14;
+}
+#Object1
+{
+  position:absolute;
+  left:0%;
+  top:0%;
+  list-style-type: none;
+  text-decoration: none;
+  width:33%;
+  height:100%;
+  text-align: center;
+  font-size:35px;
+ /* background-image: linear-gradient(to right, #06a1a6, #5284eb);*/
+}
+#Object2
+{
+  position:absolute;
+  top:0%;
+  left:33%;
+  list-style-type: none;
+  text-decoration: none;
+  width:34%;
+  height:100%;
+  text-align: center;
+  font-size:35px;
+  /*background-image: linear-gradient(to right,  #5284eb, #27668d);*/
+}
+
+#Object3
+{
+  position:absolute;
+  top:0%;
+  left:67%;
+  list-style-type: none;
+  text-decoration: none;
+  width:33%;
+  height:100%;
+  text-align: center;
+  font-size:35px;
+ /* background-image: linear-gradient(to right,   #27668d, #0f0c29);*/
+}
+#object1:hover:
+{
+  background-color: #0cd2e7;
+}
+mat-slider
+{
+  left:5%;
+}
+mat-button-toggle{
+  position: absolute;
+  left:27%;
+  top:62%;
+  font-size: 28px;
+  line-height: 5px;
+  height:45px;
+
+}
+

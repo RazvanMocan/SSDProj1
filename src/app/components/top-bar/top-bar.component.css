@@ -1,0 +1,136 @@
+body{
+  color:black;
+  overflow:hidden;
+}
+app-myform
+{
+  position:absolute;
+  left:1%;
+  top:5%;
+  color:black;
+}
+
+a{
+  color:black;
+  position:absolute;
+  height:100%;
+  width:100%;
+  text-align: center;
+  font-size:35px;
+  line-height: 55px;
+  text-decoration: none;
+}
+a:hover{
+  transition: 0.4s;
+  color:white;
+}
+
+
+#upload{
+position: absolute;
+  top:0%;
+  left:20%;
+  height:100%;
+  width:8%;
+ /* background-color: #5BB798;*/
+}
+#upload:hover{
+  background-color: #0c7489;
+  transition:0.4s;
+}
+#download{
+  position: absolute;
+  top:0%;
+  left:28%;
+  height:100%;
+  width:10%;
+  /*background-color: #5BB798;*/
+}
+#download:hover{
+  background-color: #00743a;
+  transition:0.4s;
+}
+#yourid
+{
+  position:absolute;
+  left:75%;
+  top:10%;
+  height:35%;
+  background-color: #DDDDDD;
+  border-radius: 10px;
+  transition:0.4s;
+}
+#yourid:hover
+{
+  background-color:black;
+  color: #DDDDDD;
+  transition:0.4s;
+  font-weight: bold;
+}
+#yourpass
+{
+  position:absolute;
+  top:10%;
+  left:86%;
+  height:35%;
+  background-color: #DDDDDD;
+  border-radius: 10px;
+  transition:0.4s;
+}
+#yourpass:hover
+{
+  background-color:black;
+  color: #DDDDDD;
+  transition:0.4s;
+  font-weight: bold;
+}
+#myp1
+{
+  top:23%;
+  position:absolute;
+  left:79%;
+  font-size:20px;
+  color:#001f3f;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+#myp2
+{
+  top:23%;
+  position:absolute;
+  left:89.5%;
+  font-size:20px;
+  color:#001f3f;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+#myp3bt
+{
+  border-radius:8px;
+  position:absolute;
+  top:15%;
+  left:71.5%;
+  font-size:12px;
+  font-weight: bold;
+  height:35px;
+  width:50px;
+  line-height: 0px;
+  vertical-align: text-top;
+  background-color: white;
+  color:black;
+  border-color: white;
+  transition: 0.4s;
+}
+#myp3bt:hover
+{
+  border-radius: 20px;
+  background-color: black;
+  color:white;
+  border-color: black;
+  transition:0.4s;
+}

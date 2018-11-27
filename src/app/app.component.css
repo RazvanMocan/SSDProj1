@@ -1,0 +1,205 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+/* styling my button */
+
+
+
+@keyframes tipsy {
+0 {
+  transform: translateX(-50%) translateY(-50%) rotate(0deg);
+}
+100% {
+  transform: translateX(-50%) translateY(-50%) rotate(360deg);
+}
+}
+
+body {
+  font-family: helvetica, arial, sans-serif;
+  background-color: #2e2e31;
+  background-image: linear-gradient(to right, #aa4b6b , #3b8d99);
+  overflow:hidden;
+
+}
+#minibkg
+{
+  position: absolute;
+  top:0%;
+  left:0%;
+  width: 100%;
+  height:210%;
+  background-color: #a1c4fd;
+  background-image: linear-gradient(to right, #0f0c29 , #3b8d99);
+  z-index:-1;
+}
+a {
+  color: #fffbf1;
+  text-shadow: 0 20px 25px #2e2e31, 0 40px 60px #2e2e31;
+  font-size: 80px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: -3px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+a:before,
+a:after {
+  content: '';
+  padding: .9em .4em;
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  top: 50%;
+  display: block;
+  border: 15px solid red;
+  transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  animation: 10s infinite alternate ease-in-out tipsy;
+}
+
+a:before {
+  border-color: #d9524a #d9524a rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+  z-index: -1;
+}
+
+a:after {
+  border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #d9524a #d9524a;
+  box-shadow: 25px 25px 25px rgba(46, 46, 49, .8);
+}
+
+svg
+{
+  position: absolute;
+  left:38.3%;
+  top:47%;
+  height:16%;
+  width: 23.5%;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+mat-grid-list
+{
+  position: absolute;
+  width: 84.5%;
+  height:100%;
+  left:15.5%;
+  top:65%;
+}
+mat-grid-tile{
+  background-color: black;
+  opacity: 1;
+  transition: 0.6s;
+  color: white;
+  font-size: 30px;
+  border: 2px white solid;
+  vertical-align: top;
+}
+mat-grid-tile:hover{
+  color: black;
+  opacity: 1;
+  background-color: white;
+  transition: 0.6s;
+  border: 2px black solid;
+}
+.tile_p
+{
+  position: absolute;
+  top:20%;
+}
+mat-slider{
+position: absolute;
+  top:45%;
+}
+mat-button-toggle
+{
+  position: absolute;
+  top:65%;
+}
+mat-icon{
+  position: absolute;
+  left:40%;
+  top:40%;
+  background-color:black;
+}
+app-news{
+  background-color: grey;
+  position: absolute;
+  left:10%;
+  top:21%;
+  width:80%;
+  height:15%;
+}
+app-top-bar{
+position:absolute;
+  top:0%;
+  left:0%;
+  width:100%;
+  height:6%;
+  background-color: white;
+
+  opacity:1;
+  transition: 1s;
+}
+app-top-bar:hover{
+  background: none;
+/*background-color: #5BB798;*/
+  background-color: #2ECC40;
+  transition: 1s;
+}
+#idnews
+{
+  position: absolute;
+  left:43%;
+  background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  color: red;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: bold;
+  font-size: 100px;
+  font-family: arial, helvetica;
+  margin: 50px auto;
+  text-align: center;
+  top:10%;
+  color:black;
+  z-index: 3;
+  background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+  background-size: cover;
+  color: transparent;
+/* -moz-background-clip: text;*/
+  -webkit-background-clip: text;
+  text-transform: uppercase;
+  font-size: 90px;
+  line-height: .75;
+  margin: 10px 0;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  transition: 1s;
+}
+#idnews:hover{
+  background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
+  color: red;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-weight: bold;
+  font-family: arial, helvetica;
+  text-align: center;
+  transition: 1s;
+}
+app-user
+{
+  position: absolute;
+  top:20%;
+
+}
+#testing
+{
+  position: absolute;
+  top:40%;
+}
