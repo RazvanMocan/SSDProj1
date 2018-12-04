@@ -10,6 +10,8 @@ import { SearchComponent } from './components/top-bar/search/search.component';
 import { MyformComponent } from './components/top-bar/myform/myform.component';
 import { FormsModule } from '@angular/forms';
 import { NewsComponent } from './components/news/news.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { NewsComponent } from './components/news/news.component';
     BrowserModule,
     CoreModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
