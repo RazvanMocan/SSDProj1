@@ -1,8 +1,8 @@
 <body>
 <app-myform id="appmyfrm"></app-myform>
-<div id="myp3"><button id="myp3bt">Login</button></div>
-<input id="yourid">
-<input id="yourpass">
+<div id="myp3"><button (click)="onLogin()" id="myp3bt">Login</button></div>
+<input id="yourid" [value]="usid">
+<input id="yourpass" [value]="pwd">
 <div id="upload"><a href="https://en.wikipedia.org/wiki/Upload">Upload</a></div>
 
 <div id="download"><a href="https://en.wikipedia.org/wiki/Download">Download</a></div>

@@ -4,7 +4,7 @@
 <link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
 
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     width="450px" height="240px" xml:space="preserve">
+     width="450px" height="240px" xml:space="preserve" [style.z-index]="getStyle()">
   <defs>
     <pattern id="water" width=".25" height="1.1" patternContentUnits="objectBoundingBox">
       <path fill="#000" d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z"/>
@@ -39,10 +39,10 @@
 
 </svg>
 
-<app-top-bar></app-top-bar>
-<div id="idnews">News</div>
+<app-top-bar [style.z-index]="getStyle()"></app-top-bar>
+<div id="idnews" [style.z-index]="getStyle()">News</div>
 
-<app-news></app-news>
+<app-news [style.z-index]="getStyle()"></app-news>
 <!--
 <app-user></app-user>
 <div id="testing">
@@ -54,7 +54,7 @@
 <mat-form-field><input [(ngModel)]="myVar" matInput placeholder="Search"> </mat-form-field>
 </div>
 -->
-<mat-grid-list cols="11" rowHeight="100px">
+<mat-grid-list cols="11" rowHeight="100px" [style.z-index]="getStyle()">
   <mat-grid-tile
     *ngFor="let tile of tiles"
     [colspan]="tile.cols"
@@ -65,5 +65,17 @@
 </mat-grid-list>
 <div id="minibkg"></div>
 
+<mat-grid-list id="adminlist" cols="11" rowHeight="100px" [style.z-index]="getStyle2()">
+  <mat-grid-tile id="admintiles"
+    *ngFor="let tile of tilesUsers"
+    [colspan]="tile.cols"
+    [rowspan]="tile.rows">
+    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>  <mat-slider  min="1" max="10" step="1" value="{{rating}}" thumbLabel tickInterval="1"></mat-slider>
+    <mat-button-toggle>Ban</mat-button-toggle>
+  </mat-grid-tile>
+</mat-grid-list>
+<div id="minibkg"></div>
+
+<app-banusr id="ban" [style.z-index]="getStyle()"></app-banusr>
 
 </body>
