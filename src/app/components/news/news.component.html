@@ -1,6 +1,6 @@
 
 <!--<div id="idnews">News</div>-->
 <ul>
-  <li *ngFor="let hero of heroes" class="objclass" id="{{hero}}"> {{hero}}<mat-slider min="1" max="10" step="1" value="{{rating}}" thumbLabel tickInterval="1"></mat-slider><mat-button-toggle>Download {{hero}}</mat-button-toggle></li>
+  <li *ngFor="let hero of heroes;" class="objclass" id="{{myids[heroes.indexOf(hero)]}}"> {{hero}}<mat-slider min="1" max="10" step="1" value="{{rating}}" thumbLabel tickInterval="1"></mat-slider><mat-button-toggle>Download {{hero}}</mat-button-toggle></li>
 </ul>
 

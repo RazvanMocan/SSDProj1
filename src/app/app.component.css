@@ -203,3 +203,23 @@ app-user
   position: absolute;
   top:40%;
 }
+#ban
+{
+  position:absolute;
+  left:81%;
+  top:7%;
+  width:15%;
+  height:5%;
+  border-radius: 10%;
+  color: white;
+}
+#adminlist
+{
+  z-index: -1;
+  position: absolute;
+  top:20%;
+}
+#admintiles
+{
+  z-index:-1;
+}

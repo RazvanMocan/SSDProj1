@@ -10,6 +10,7 @@ import { SearchComponent } from './components/top-bar/search/search.component';
 import { MyformComponent } from './components/top-bar/myform/myform.component';
 import { FormsModule } from '@angular/forms';
 import { NewsComponent } from './components/news/news.component';
+import { BanusrComponent } from './app/banusr/banusr.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +18,8 @@ import { NewsComponent } from './components/news/news.component';
     TopBarComponent,
     SearchComponent,
     MyformComponent,
-    NewsComponent
+    NewsComponent,
+    BanusrComponent
   ],
   imports: [
     BrowserModule,
