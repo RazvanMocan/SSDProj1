@@ -1,10 +1,10 @@
 import {Component, NgModule, OnInit} from '@angular/core';
 
-//import {MatButtonToggleModule} from '@angular/material/button-toggle';
+// import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
 
-    //[MatButtonToggleModule]
+    // [MatButtonToggleModule]
 
 })
 
@@ -27,10 +27,10 @@ console.log('this ran');
 this.name = 'Iz me';
   }
   deletetxt(mystr) {
-    if(mystr==='') {
+    if (mystr === '') {
       this.name = 'me';
-    }
-    else
+    } else {
       this.name = '';
+    }
   }
 }
