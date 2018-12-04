@@ -8,7 +8,7 @@ import {MatIconRegistry} from '@angular/material';
 })
 export class NewsComponent implements OnInit {
 heroes:string[]=["Object1","Object2","Object3"];
-myids:string[]=["Object1","Object2","Object3"];
+myids:string[]=["idnews1","idnews2","idnews3"];
 rating=5;
   constructor() {
 
