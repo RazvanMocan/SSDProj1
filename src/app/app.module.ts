@@ -10,8 +10,7 @@ import { SearchComponent } from './components/top-bar/search/search.component';
 import { MyformComponent } from './components/top-bar/myform/myform.component';
 import { FormsModule } from '@angular/forms';
 import { NewsComponent } from './components/news/news.component';
-import { HttpClientModule } from '@angular/common/http';
-
+import { BanusrComponent } from './app/banusr/banusr.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,14 +18,14 @@ import { HttpClientModule } from '@angular/common/http';
     TopBarComponent,
     SearchComponent,
     MyformComponent,
-    NewsComponent
+    NewsComponent,
+    BanusrComponent
   ],
   imports: [
     BrowserModule,
     CoreModule,
     SharedModule,
-    FormsModule,
-    HttpClientModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

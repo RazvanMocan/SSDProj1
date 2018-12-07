@@ -1,0 +1,16 @@
+#ban
+{
+  background-color: #01FF70;
+text-decoration: none;
+  border:none;
+  margin: none;
+  font-size: 30px;
+text-align: center;
+  width: 100%;
+}
+#clr
+{
+  position: absolute;
+  left:-55%;
+  top:40%;
+}
