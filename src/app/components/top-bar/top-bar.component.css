@@ -67,6 +67,27 @@ position: absolute;
   transition:0.4s;
   font-weight: bold;
 }
+
+#yourid1
+{
+  position:absolute;
+  left:65%;
+  top:0%;
+  height:100%;
+  width: 35%;
+  background-color: white;
+  transition:0.4s;
+  z-index: -16;
+}
+#yourid1:hover
+{
+  background-color:#2ECC40;
+  color: #DDDDDD;
+  transition:0.4s;
+  font-weight: bold;
+}
+
+
 #yourpass
 {
   position:absolute;
@@ -127,6 +148,31 @@ position: absolute;
   transition: 0.4s;
 }
 #myp3bt:hover
+{
+  border-radius: 20px;
+  background-color: black;
+  color:white;
+  border-color: black;
+  transition:0.4s;
+}
+#myp4
+{
+  border-radius:8px;
+  position:absolute;
+  top:15%;
+  left:71.5%;
+  font-size:12px;
+  font-weight: bold;
+  height:35px;
+  width:50px;
+  line-height: 0px;
+  vertical-align: text-top;
+  background-color: white;
+  color:black;
+  border-color: white;
+  transition: 0.4s;
+}
+#myp4:hover
 {
   border-radius: 20px;
   background-color: black;

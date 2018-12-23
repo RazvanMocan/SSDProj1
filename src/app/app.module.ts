@@ -19,7 +19,7 @@ import { BanusrComponent } from './app/banusr/banusr.component';
     SearchComponent,
     MyformComponent,
     NewsComponent,
-    BanusrComponent
+    BanusrComponent,
   ],
   imports: [
     BrowserModule,

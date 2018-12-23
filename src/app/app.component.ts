@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+/*import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-
+*/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SSDProj';
+  // title = 'SSDProj';
   isAdmin = 1;
   tiles = [
     {text: 'One', cols: 3, rows: 3, color: 'lightblue'},
@@ -37,16 +37,15 @@ export class AppComponent {
   ];
   rating = 5;
   public myVar: string;
-getStyle()
-{
-  if (this.isAdmin==0)
+getStyle() {
+  if (this.isAdmin == 0)
     return -5;
   return 5;
 }
-  getStyle2()
-  {
-    if (this.isAdmin!=0)
+  getStyle2() {
+    if (this.isAdmin !=0) {
       return -5;
+    }
     return 5;
   }
 }

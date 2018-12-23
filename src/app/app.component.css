@@ -156,16 +156,12 @@ app-top-bar:hover{
   position: absolute;
   left:43%;
   background: url(http://apod.nasa.gov/apod/image/0603/coma_misti.jpg) -80px -80px;
-  color: red;
   -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
   font-weight: bold;
-  font-size: 100px;
   font-family: arial, helvetica;
   margin: 50px auto;
   text-align: center;
   top:10%;
-  color:black;
   z-index: 3;
   background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
   background-size: cover;
@@ -188,7 +184,7 @@ app-top-bar:hover{
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   font-weight: bold;
-  font-family: arial, helvetica;
+  font-family: arial, helvetica, serif;
   text-align: center;
   transition: 1s;
 }
