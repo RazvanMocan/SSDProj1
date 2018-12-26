@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
 <body>
 
 <link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
@@ -39,7 +39,7 @@
 
 </svg>
 
-<app-top-bar [style.z-index]="getStyle()"></app-top-bar>
+<app-top-bar [style.z-index]="getStyle()" (myEvent)="getSpecStyle($event)"></app-top-bar>
 <div id="idnews" [style.z-index]="getStyle()">News</div>
 
 <app-news [style.z-index]="getStyle()"></app-news>
@@ -59,17 +59,17 @@
     *ngFor="let tile of tiles"
     [colspan]="tile.cols"
     [rowspan]="tile.rows">
-    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>  <mat-slider  min="1" max="10" step="1" value="{{rating}}" thumbLabel tickInterval="1"></mat-slider>
+    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>  <mat-slider  [(ngModel)]="tile.rating" min="1" max="10" step="1" value="1" thumbLabel tickInterval="1"></mat-slider>
     <mat-button-toggle>Download</mat-button-toggle>
   </mat-grid-tile>
 </mat-grid-list>
 
 <mat-grid-list id="adminlist" cols="11" rowHeight="100px" [style.z-index]="getStyle2()">
   <mat-grid-tile id="admintiles"
-    *ngFor="let tile of tilesUsers"
-    [colspan]="tile.cols"
-    [rowspan]="tile.rows">
-    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>  <mat-slider  min="1" max="10" step="1" value="{{rating}}" thumbLabel tickInterval="1"></mat-slider>
+                 *ngFor="let tile of tilesUsers"
+                 [colspan]="tile.cols"
+                 [rowspan]="tile.rows">
+    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>  <mat-slider [(ngModel)]="tile.rating" min="1" max="10" step="1"  thumbLabel tickInterval="1"></mat-slider>
     <mat-button-toggle>Ban</mat-button-toggle>
   </mat-grid-tile>
 </mat-grid-list>
@@ -78,3 +78,4 @@
 <!--<app-banusr id="ban" [style.z-index]="getStyle()"></app-banusr>
 !-->
 </body>
+

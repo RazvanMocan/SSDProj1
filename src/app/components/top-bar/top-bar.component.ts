@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-top-bar',
@@ -6,6 +6,11 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  @Output() myEvent = new EventEmitter<string>();
+
+  callParent() {
+    this.myEvent.emit('eventDesc');
+  }
 @Input() usid: string = "";
 pwd: string = "";
 log: string ="Login";
@@ -40,6 +45,8 @@ showUser()
   this.loggeduser = this.usid;
   //this.log = "Logout";
   console.log(this.loggeduser);
+  this.callParent();
+
 }
   getStyle() {
       return -15;
