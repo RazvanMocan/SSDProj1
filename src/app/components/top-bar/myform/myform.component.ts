@@ -12,12 +12,33 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class MyformComponent implements OnInit {
   myVar: string;
-
-
+  myControl = new FormControl();
+  options: string[] = ['One', 'Two', 'Three'];
+  filteredOptions: Observable<any[]>;
   constructor(public parent: AppComponent) { }
-
+  tiles = [
+    {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue', download: 'www.dl.com'},
+    {text: 'Two', rating: 2, cols: 3, rows: 3, color: 'lightgreen', download: 'www.dl.com'},
+    {text: 'Three', rating: 5, cols: 3, rows: 3, color: 'lightpink', download: 'www.dl.com'},
+    {text: 'Four', rating: 8, cols: 3, rows: 3, color: '#DDBDF1', download: 'www.dl.com'},
+    {text: '5', rating: 8, cols: 3, rows: 3, color: 'lightblue', download: 'www.dl.com'},
+    {text: '6', rating: 10, cols: 3, rows: 3, color: 'lightgreen', download: 'www.dl.com'},
+    {text: '7', rating: 8,  cols: 3, rows: 3, color: 'lightpink', download: 'www.dl.com'},
+    {text: '8', rating: 1,  cols: 3, rows: 3, color: '#DDBDF1', download: 'www.dl.com'},
+    {text: '9', rating: 8,  cols: 3, rows: 3, color: 'lightblue', download: 'www.dl.com'},
+    {text: '11', rating: 8,  cols: 3, rows: 3, color: 'lightgreen', download: 'www.dl.com'},
+    {text: '12', rating: 8,  cols: 3, rows: 3, color: 'lightpink', download: 'www.dl.com'},
+    {text: '13', rating: 8,  cols: 3, rows: 3, color: '#DDBDF1', download: 'www.dl.com'},
+  ];
   ngOnInit() {
-
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(null),
+        map(value => this._filter(value))
+      );
+  }
+  private _filter(value: string): any[] {
+    return this.tiles.filter((s) => new RegExp(value, 'gi').test(s.text));
   }
 
   someAction() {
