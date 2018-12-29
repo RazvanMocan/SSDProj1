@@ -67,7 +67,13 @@ position: absolute;
   transition:0.4s;
   font-weight: bold;
 }
-
+#loggedAs
+{
+  position: absolute;
+  left:47%;
+  top:29%;
+  font-size: 20px;
+}
 #yourid1
 {
   position:absolute;

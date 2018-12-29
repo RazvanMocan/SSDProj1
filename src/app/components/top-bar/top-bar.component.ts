@@ -15,23 +15,41 @@ export class TopBarComponent implements OnInit {
 pwd: string = "";
 log: string ="Login";
 loggeduser : string= "";
-
+loggedInUser : string = '';
+isAuthenticated = 0;
+z1=-15;
+z2=1;
   constructor() { }
 
   ngOnInit() {
   }
 onLogin()
 {
-
+  if(this.isAuthenticated === 1) {
+    this.loggedInUser = '';
+    this.z2 = 1;
+    this.log = 'Login';
+    this.isAuthenticated = 0;
+  }
+  else {
 //this.usid="Logged";
 //this.pwd=" in";
-console.log(this.usid);
-console.log(this.pwd)
-if (this.usid === 'Logged')
-  if (this.pwd === 'in')
-    this.showUser();
+    console.log(this.usid);
+    console.log(this.pwd)
+    if (this.usid === 'Logged')
+      if (this.pwd === 'in')
+        this.showUser();
+    if (this.usid === 'user1')
+      if (this.pwd === 'pwd1') {
+        this.loggedInUser = 'Logged in as ' + this.usid;
+        this.z1 = -15;
+        this.z2 = 0;
+        this.log = 'Logout';
+        this.isAuthenticated = 1;
+        this.getStyle();
 
-
+      }
+  }
 }
 
 
@@ -49,6 +67,6 @@ showUser()
 
 }
   getStyle() {
-      return -15;
+      return this.z1;
   }
 }
