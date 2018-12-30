@@ -57,4 +57,8 @@ getStyle() {
       return -5;
     return 5;
   }
+  onLeaveAdmin(event)
+  {
+    this.isAdmin=1;
+  }
 }
