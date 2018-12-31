@@ -13,6 +13,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 export class AppComponent {
   // title = 'SSDProj';
   isAdmin = 1;
+  download = 'Download';
+  downloadNews = 'Ban';
   tiles = [
     {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue'},
     {text: 'Two', rating: 2, cols: 3, rows: 3, color: 'lightgreen'},
@@ -60,5 +62,22 @@ getStyle() {
   onLeaveAdmin(event)
   {
     this.isAdmin=1;
+  }
+
+
+  //placeholders for download and ban procedure >
+  doDownload1()
+  {
+    if(this.download === 'Download')
+  this.download='Downloaded';
+    else
+      this.download = 'Download';
+  }
+  doDownload2()
+  {
+    if(this.downloadNews === 'Ban')
+      this.downloadNews='Unban';
+    else
+      this.downloadNews = 'Ban';
   }
 }
