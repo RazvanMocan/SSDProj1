@@ -1,28 +1,33 @@
 import { Component } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {TopBarComponent} from './components/top-bar/top-bar.component';
+/*import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
-
+*/
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+
+  //directives: [TopBarComponent]
 })
 export class AppComponent {
-  title = 'SSDProj';
+  // title = 'SSDProj';
   isAdmin = 1;
+  download = 'Download';
+  downloadNews = 'Ban';
   tiles = [
-    {text: 'One', cols: 3, rows: 3, color: 'lightblue'},
-    {text: 'Two', cols: 3, rows: 3, color: 'lightgreen'},
-    {text: 'Three', cols: 3, rows: 3, color: 'lightpink'},
-    {text: 'Four', cols: 3, rows: 3, color: '#DDBDF1'},
-    {text: 'One', cols: 3, rows: 3, color: 'lightblue'},
-    {text: 'Two', cols: 3, rows: 3, color: 'lightgreen'},
-    {text: 'Three', cols: 3, rows: 3, color: 'lightpink'},
-    {text: 'Four', cols: 3, rows: 3, color: '#DDBDF1'},
-    {text: 'One', cols: 3, rows: 3, color: 'lightblue'},
-    {text: 'Two', cols: 3, rows: 3, color: 'lightgreen'},
-    {text: 'Three', cols: 3, rows: 3, color: 'lightpink'},
-    {text: 'Four', cols: 3, rows: 3, color: '#DDBDF1'},
+    {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue'},
+    {text: 'Two', rating: 2, cols: 3, rows: 3, color: 'lightgreen'},
+    {text: 'Three', rating: 5, cols: 3, rows: 3, color: 'lightpink'},
+    {text: 'Four', rating: 8, cols: 3, rows: 3, color: '#DDBDF1'},
+    {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue'},
+    {text: 'Two', rating: 10, cols: 3, rows: 3, color: 'lightgreen'},
+    {text: 'Three', rating: 8,  cols: 3, rows: 3, color: 'lightpink'},
+    {text: 'Four', rating: 1,  cols: 3, rows: 3, color: '#DDBDF1'},
+    {text: 'One', rating: 8,  cols: 3, rows: 3, color: 'lightblue'},
+    {text: 'Two', rating: 8,  cols: 3, rows: 3, color: 'lightgreen'},
+    {text: 'Three', rating: 8,  cols: 3, rows: 3, color: 'lightpink'},
+    {text: 'Four', rating: 8,  cols: 3, rows: 3, color: '#DDBDF1'},
   ];
   tilesUsers = [
     {text: 'User1', cols: 3, rows: 3, color: 'lightblue'},
@@ -35,18 +40,44 @@ export class AppComponent {
     {text: 'User8', cols: 3, rows: 3, color: 'lightgreen'},
     {text: 'User9', cols: 3, rows: 3, color: 'lightpink'}
   ];
-  rating = 5;
+  rating = 1;
   public myVar: string;
-getStyle()
-{
-  if (this.isAdmin==0)
+getStyle() {
+  if (this.isAdmin == 0)
     return -5;
   return 5;
 }
-  getStyle2()
-  {
-    if (this.isAdmin!=0)
+  getStyle2() {
+    if (this.isAdmin !=0) {
+      return -5;
+    }
+    return 5;
+  }
+  getSpecStyle(event) {
+    this.isAdmin=0;
+    if (this.isAdmin === 0)
       return -5;
     return 5;
+  }
+  onLeaveAdmin(event)
+  {
+    this.isAdmin=1;
+  }
+
+
+  //placeholders for download and ban procedure >
+  doDownload1()
+  {
+    if(this.download === 'Download')
+  this.download='Downloaded';
+    else
+      this.download = 'Download';
+  }
+  doDownload2()
+  {
+    if(this.downloadNews === 'Ban')
+      this.downloadNews='Unban';
+    else
+      this.downloadNews = 'Ban';
   }
 }

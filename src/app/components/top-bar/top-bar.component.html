@@ -1,12 +1,14 @@
 <body>
 <app-myform id="appmyfrm"></app-myform>
-<div id="myp3"><button (click)="onLogin()" id="myp3bt">Login</button></div>
-<input id="yourid" [value]="usid">
-<input id="yourpass" [value]="pwd">
+<div id="myp3"><button (click)="onLogin()" id="myp3bt">{{log}}</button></div>
+<!--<div id="myp4"><button (click)="onLogout()" id="myp3bt" [style.z-index]="getStyle()">Logout</button></div>-->
+<input id="yourid" [(ngModel)]="usid"  [value]="usid" [style.z-index]="getStyle()" [style.opacity]="z2">
+<div id="loggedAs">{{loggedInUser}}</div>
+<input id="yourpass"  [(ngModel)]="pwd" [value]="pwd" [style.z-index]="getStyle()" [style.opacity]="z2">
 <div id="upload"><a href="https://en.wikipedia.org/wiki/Upload">Upload</a></div>
-
+<!--<div id="yourid1" [style.z-index]="getStyle()"></div>-->
 <div id="download"><a href="https://en.wikipedia.org/wiki/Download">Download</a></div>
-<p id="myp1">Id</p>
-<p id="myp2">Pass</p>
+<p id="myp1" [style.opacity]="z2">Id</p>
+<p id="myp2" [style.opacity]="z2">Pass</p>
 
 </body>
