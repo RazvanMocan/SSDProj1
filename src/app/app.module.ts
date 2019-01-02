@@ -11,6 +11,9 @@ import { MyformComponent } from './components/top-bar/myform/myform.component';
 import { FormsModule } from '@angular/forms';
 import { NewsComponent } from './components/news/news.component';
 import { BanusrComponent } from './app/banusr/banusr.component';
+import { RegisterComponent } from './register/register.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +23,15 @@ import { BanusrComponent } from './app/banusr/banusr.component';
     MyformComponent,
     NewsComponent,
     BanusrComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     CoreModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -69,12 +69,23 @@
                  *ngFor="let tile of tilesUsers"
                  [colspan]="tile.cols"
                  [rowspan]="tile.rows">
-    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>  
+    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>
     <mat-button-toggle (click)="doDownload2()">{{downloadNews}}</mat-button-toggle>
   </mat-grid-tile>
 </mat-grid-list>
 <div id="minibkg"></div>
-
+<div id = "registerComponent" (click)="changeStyleRegister1()" [style.z-index]="getStyleRegister1()">Register</div>
+<div id = "actualRegister"  [style.z-index]="getStyleRegister2()">
+  <input id="registerId"  [(ngModel)]="regId" [value]="regId">
+  <input id="registerPwd"  [(ngModel)]="regPwd" [value]="regPwd">
+  <input id="registerMail"  [(ngModel)]="regMail" [value]="regMail">
+  <div id = "registerIdLabel">Id</div>
+  <div id = "registerPwdLabel">Pwd</div>
+  <div id = "registerMailLabel">E-mail</div>
+  <div id = "clickRegister" (click)="signUp()">Sign-up</div>
+  <div id = "clickCloseRegister" (click)="changeStyleRegister2()">Close Reg</div>
+  <div id = "successReg" (click)="setOpacityBriefly()" [style.opacity]="getSuccessOpacity()"> Successful sign-up </div>
+</div>
 <!--<app-banusr id="ban" [style.z-index]="getStyle()"></app-banusr>
 !-->
 </body>
