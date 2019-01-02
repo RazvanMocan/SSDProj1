@@ -13,8 +13,16 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 export class AppComponent {
   // title = 'SSDProj';
   isAdmin = 1;
+  isRegister = 1;
   download = 'Download';
+  regId = '';
+  regPwd = '';
+  regMail = '';
+  completeRegId = '';
+  completeRegPwd = '';
+  completeRegMail = '';
   downloadNews = 'Ban';
+  successOpacity = 0;
   tiles = [
     {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue'},
     {text: 'Two', rating: 2, cols: 3, rows: 3, color: 'lightgreen'},
@@ -53,6 +61,24 @@ getStyle() {
     }
     return 5;
   }
+  changeStyleRegister1()
+  {
+    this.isRegister = 0;
+  }
+  changeStyleRegister2()
+  {
+    this.isRegister = 1;
+  }
+  getStyleRegister1() {
+    if (this.isRegister == 0)
+      return -5;
+    return 5;
+  }
+  getStyleRegister2() {
+    if (this.isRegister != 0)
+      return -5;
+    return 5;
+  }
   getSpecStyle(event) {
     this.isAdmin=0;
     if (this.isAdmin === 0)
@@ -80,4 +106,34 @@ getStyle() {
     else
       this.downloadNews = 'Ban';
   }
+  signUp()
+{
+
+
+  if ((this.regMail !== '') && (this.regId !== '') && (this.regPwd !== '') && (this.regMail.endsWith('.com'))){
+    this.setOpacityBriefly();
+    this.completeRegId = this.regId;
+    this.completeRegPwd = this.regPwd;
+    this.completeRegMail = this.regMail;
+    this.regId = '';
+    this.regPwd = '';
+    this.regMail = '';
+  }
+
+
+}
+getSuccessOpacity()
+{
+  return this.successOpacity;
+}
+  setOpacityBack()
+{
+  this.successOpacity = 0;
+}
+  setOpacityBriefly()
+  {
+
+  this.successOpacity = 1;
+
+}
 }

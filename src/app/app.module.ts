@@ -11,6 +11,7 @@ import { MyformComponent } from './components/top-bar/myform/myform.component';
 import { FormsModule } from '@angular/forms';
 import { NewsComponent } from './components/news/news.component';
 import { BanusrComponent } from './app/banusr/banusr.component';
+import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { BanusrComponent } from './app/banusr/banusr.component';
     MyformComponent,
     NewsComponent,
     BanusrComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
