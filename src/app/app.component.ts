@@ -71,7 +71,11 @@ export class AppComponent {
   {
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post(this.url,fd);
+    this.http.post(this.url,fd).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
     console.log(this.selectedFile.name);
   }
   getStyle() {
