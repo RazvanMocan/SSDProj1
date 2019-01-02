@@ -139,7 +139,7 @@ export class AppComponent {
 {
 
 
-  if ((this.regMail !== '') && (this.regId !== '') && (this.regPwd !== '') && (this.regMail.endsWith('.com'))){
+  if ((this.regMail !== '') && (this.regId.length > 4) && (this.regId !== '') && (this.regPwd.length > 4) && (this.regPwd !== '') && (this.regMail === this.regPwd)){
     this.setOpacityBriefly();
     this.completeRegId = this.regId;
     this.completeRegPwd = this.regPwd;
