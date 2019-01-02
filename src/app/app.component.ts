@@ -15,6 +15,8 @@ import {Observable} from 'rxjs';
   //directives: [TopBarComponent]
 })
 export class AppComponent {
+
+
   // title = 'SSDProj';
   isAdmin = 1;
   isRegister = 1;
@@ -54,12 +56,23 @@ export class AppComponent {
   ];
   tile1 = new TileClass();
   rating = 1;
+  selectedFile: File = null;
   url = 'http://localhost:7070/';
   public myVar: string;
   constructor(private http: HttpClient) {
   }
   createTile(tile: TileClass): Observable<TileClass> {
     return this.http.post<TileClass>(this.url, tile);
+  }
+  onFileChanged(event) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+  onUpload()
+  {
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http.post(this.url,fd);
+    console.log(this.selectedFile.name);
   }
   getStyle() {
   if (this.isAdmin == 0)
