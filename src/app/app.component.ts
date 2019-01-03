@@ -70,7 +70,7 @@ export class AppComponent {
   onUpload()
   {
     const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
+    fd.append('file', this.selectedFile, this.selectedFile.name);
     this.http.post(this.url,fd).subscribe(
       res => {
         console.log(res);
@@ -139,7 +139,7 @@ export class AppComponent {
 {
 
 
-  if ((this.regMail !== '') && (this.regId !== '') && (this.regPwd !== '') && (this.regMail.endsWith('.com'))){
+  if ((this.regMail !== '') && (this.regId.length > 4) && (this.regId !== '') && (this.regPwd.length > 4) && (this.regPwd !== '') && (this.regMail === this.regPwd)){
     this.setOpacityBriefly();
     this.completeRegId = this.regId;
     this.completeRegPwd = this.regPwd;
