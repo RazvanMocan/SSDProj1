@@ -139,7 +139,7 @@ export class AppComponent {
   doDownload2()
   {
     if(this.downloadNews === 'Ban')
-      this.downloadNews='Unban';
+      this.downloadNews = 'Unban';
     else
       this.downloadNews = 'Ban';
   }
