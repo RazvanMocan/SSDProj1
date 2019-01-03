@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {User} from './user';
 import {TopBarComponent} from './components/top-bar/top-bar.component';
 /*import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
@@ -16,8 +16,19 @@ import {Observable} from 'rxjs';
 })
 export class AppComponent {
 
-
+  actualTiles: TileClass[];
   // title = 'SSDProj';
+ /* actualTiles: TileClass[];
+  exampleTile: TileClass;
+  exampleTile = {id: number;
+  name: 'abc';
+  downloads: 123;
+  path: 'sd';
+  // uploader: User;
+  // rating: Rating[];
+  uploadTime: '10-10-2010';
+}
+*/
   isAdmin = 1;
   isRegister = 1;
   download = 'Download';
@@ -32,6 +43,7 @@ export class AppComponent {
   fakeStyle = -20;
   registerStyle1 = 5;
   registerStyle2 = -5;
+  colsAndRows = 3;
   tiles = [
     {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue'},
     {text: 'Two', rating: 2, cols: 3, rows: 3, color: 'lightgreen'},
@@ -191,8 +203,18 @@ doRate( name )
 {
   const url = this.url + `api/rate?id=${1}&mark=${name.rating}`;
   this.http.get(url).subscribe(
-    res => {
+    res  => {
       console.log(res);
+    }
+  );
+}
+getObjects()
+{
+  const geturl = 'http://localhost:7070/latest';
+  this.http.get(geturl).subscribe(
+    (res: any[]) => {
+      console.log(res);
+      this.actualTiles = res;
     }
   );
 }
