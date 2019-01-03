@@ -66,17 +66,19 @@
 <mat-form-field><input [(ngModel)]="myVar" matInput placeholder="Search"> </mat-form-field>
 </div>
 -->
+<!--
 <mat-grid-list cols="11" rowHeight="100px" [style.z-index]="getStyle()">
   <mat-grid-tile
     *ngFor="let tile of actualTiles"
     [colspan]="colsAndRows"
     [rowspan]="colsAndRows">
-    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>  <mat-slider  [(ngModel)]="tile.rating" min="1" max="10" step="1" value="1" thumbLabel tickInterval="1"></mat-slider>
+    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.name}}</a></p>  <mat-slider  [(ngModel)]="tile.rating" min="1" max="10" step="1" value="1" thumbLabel tickInterval="1"></mat-slider>
     <mat-button-toggle id="but1"(click)="doDownload1()">{{download}}</mat-button-toggle>
     <mat-button-toggle id="but2"(click)="doRate(tile)">Rate</mat-button-toggle>
   </mat-grid-tile>
 </mat-grid-list>
-<!--
+-->
+
 <mat-grid-list cols="11" rowHeight="100px" [style.z-index]="getStyle()">
   <mat-grid-tile
     *ngFor="let tile of tiles"
@@ -87,7 +89,7 @@
     <mat-button-toggle id="but2"(click)="doRate(tile)">Rate</mat-button-toggle>
   </mat-grid-tile>
 </mat-grid-list>
--->
+
 <mat-grid-list id="adminlist" cols="11" rowHeight="100px" [style.z-index]="getStyle2()">
   <mat-grid-tile id="admintiles"
                  *ngFor="let tile of tilesUsers"

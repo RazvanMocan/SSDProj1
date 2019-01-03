@@ -29,6 +29,7 @@ export class AppComponent {
   uploadTime: '10-10-2010';
 }
 */
+ //exampleTile = new TileClass();
   isAdmin = 1;
   isRegister = 1;
   download = 'Download';
