@@ -5,7 +5,7 @@ import {TopBarComponent} from './components/top-bar/top-bar.component';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 */
 import { TileClass} from './tile-class';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 @Component({
   selector: 'app-root',
@@ -79,12 +79,12 @@ export class AppComponent {
     console.log(this.selectedFile.name);
   }
   getStyle() {
-  if (this.isAdmin == 0)
+  if (this.isAdmin === 0)
     return -5;
   return 5;
 }
   getStyle2() {
-    if (this.isAdmin !=0) {
+    if (this.isAdmin !== 0) {
       return -5;
     }
     return 5;
@@ -148,7 +148,15 @@ export class AppComponent {
     this.regPwd = '';
     this.regMail = '';
   }
-
+  console.log('gged in');
+  const url = `http://localhost:7070/api/user/signup/${this.regId}`;
+  const post = new FormData();
+  post.append('password' , this.regPwd);
+  this.http.post(url, post).subscribe(
+    res => {
+      console.log(res);
+    }
+  );
 
 }
 getSuccessOpacity()
