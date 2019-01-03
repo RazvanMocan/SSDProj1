@@ -443,3 +443,12 @@ app-user
   opacity:0.6;
   transition: 0.6s;
 }
+#but2
+{
+  position: absolute;
+  top:83%;
+  left: 41%;
+  color: black;
+  background-color: #f5e6cc;
+
+}

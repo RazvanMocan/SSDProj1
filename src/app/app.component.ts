@@ -189,5 +189,9 @@ setFakeStyle()
   {
     this.fakeStyle *= (-1);
   }
-
+doRate( name )
+{
+  console.log(name.text);
+  console.log(name.rating);
+}
 }
