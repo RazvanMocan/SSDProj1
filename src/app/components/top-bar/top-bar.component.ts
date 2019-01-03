@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'app-top-bar',
@@ -19,7 +20,7 @@ loggedInUser : string = '';
 isAuthenticated = 0;
 z1=-15;
 z2=1;
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
@@ -50,7 +51,15 @@ onLogin()
 
       }
   }
+  const url = `http://localhost:7070/api/user/login/${this.usid}`;
+  const post = new HttpParams().set('password' , this.pwd);
+  this.http.get(url, {params: post}).subscribe(
+    res => {
+      console.log(res);
+    }
+  );
 }
+
 
 
 showUser()

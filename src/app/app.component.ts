@@ -79,7 +79,6 @@ export class AppComponent {
         console.log(res);
       }
     );
-    console.log(this.selectedFile.name);
   }
   getStyle() {
   if (this.isAdmin === 0)
@@ -156,8 +155,7 @@ export class AppComponent {
     this.regPwd = '';
     this.regMail = '';
   }
-  console.log('gged in');
-  const url = `http://localhost:7070/api/user/signup/${this.regId}`;
+  const url = this.url + `api/user/signup/${this.regId}`;
   const post = new FormData();
   post.append('password' , this.regPwd);
   this.http.post(url, post).subscribe(
@@ -191,7 +189,11 @@ setFakeStyle()
   }
 doRate( name )
 {
-  console.log(name.text);
-  console.log(name.rating);
+  const url = this.url + `api/rate?id=${1}&mark=${name.rating}`;
+  this.http.get(url).subscribe(
+    res => {
+      console.log(res);
+    }
+  );
 }
 }
