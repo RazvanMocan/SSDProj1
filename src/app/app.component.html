@@ -1,6 +1,6 @@
 
 <body>
-<div id="Razvan">
+<!--<div id="Razvan">
   <ng-form method="POST" enctype="multipart/form-data" action="http://localhost:7070/">
     <table>
       <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
@@ -8,9 +8,10 @@
     </table>
   </ng-form>
 </div>
-<div id="plswork2">
-<input type="file" (change)="onFileChanged($event)">
-  <button type = "button" (click)="onUpload()">Upload</button>
+-->
+<div id="plswork2" [style.z-index]="getFakeStyle()">
+<input id = "upChoose" type="file" (change)="onFileChanged($event)">
+  <button id = "upButt" type = "button" (click)="onUpload()">Upload</button>
 </div>
 <link href='https://fonts.googleapis.com/css?family=Cabin+Condensed:700' rel='stylesheet' type='text/css'>
 
@@ -99,9 +100,6 @@
 </div>
 <!--<app-banusr id="ban" [style.z-index]="getStyle()"></app-banusr>
 !-->
-<form id="plswork" fileuploader onupload="onUpload" method="post" action="/statictest/test.json" enctype="multipart/form-data">
-  <input type="file">
-  <input type="submit">
-</form>
+<div id="fakeUpload" (click)="setFakeStyle()"></div>
 </body>
 

@@ -29,6 +29,9 @@ export class AppComponent {
   completeRegMail = '';
   downloadNews = 'Ban';
   successOpacity = 0;
+  fakeStyle = -20;
+  registerStyle1 = 5;
+  registerStyle2 = -5;
   tiles = [
     {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue'},
     {text: 'Two', rating: 2, cols: 3, rows: 3, color: 'lightgreen'},
@@ -99,23 +102,28 @@ export class AppComponent {
   }
   getStyleRegister1() {
     if (this.isRegister == 0)
-      return -5;
-    return 5;
+      return this.registerStyle2;
+    return this.registerStyle1;
   }
   getStyleRegister2() {
     if (this.isRegister != 0)
-      return -5;
-    return 5;
+      return this.registerStyle2;
+    return this.registerStyle1;
   }
   getSpecStyle(event) {
-    this.isAdmin=0;
+    this.isAdmin = 0;
     if (this.isAdmin === 0)
+    {
+      this.fakeStyle = -20;
+      this.registerStyle1 = -20;
       return -5;
+  }
     return 5;
   }
   onLeaveAdmin(event)
   {
     this.isAdmin=1;
+    this.registerStyle1 = 5;
   }
 
 
@@ -165,4 +173,13 @@ getSuccessOpacity()
   this.successOpacity = 1;
 
 }
+getFakeStyle()
+{
+  return this.fakeStyle;
+}
+setFakeStyle()
+  {
+    this.fakeStyle *= (-1);
+  }
+
 }
