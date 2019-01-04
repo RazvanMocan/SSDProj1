@@ -71,7 +71,7 @@
     *ngFor="let tile of actualTiles"
     [colspan]="colsAndRows"
     [rowspan]="colsAndRows">
-    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>  <mat-slider  [(ngModel)]="tile.rating" min="1" max="10" step="1" value="1" thumbLabel tickInterval="1"></mat-slider>
+    <p class="tile_p"><a href="http://localhost:7070/download?id=1" target="_blank">{{tile.name}}</a></p>  <mat-slider  [(ngModel)]="tile.rating" min="1" max="10" step="1" value="1" thumbLabel tickInterval="1"></mat-slider>
     <mat-button-toggle id="but1"(click)="doDownload1()">{{download}}</mat-button-toggle>
     <mat-button-toggle id="but2"(click)="doRate(tile)">Rate</mat-button-toggle>
   </mat-grid-tile>
