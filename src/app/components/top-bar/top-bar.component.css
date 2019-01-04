@@ -24,7 +24,11 @@ a:hover{
   transition: 0.4s;
   color:white;
 }
-
+a:active
+{
+  color: #f5e663;
+  transition: 0.1s;
+}
 
 #upload{
 position: absolute;
@@ -38,6 +42,11 @@ position: absolute;
 #upload:hover{
   background-color: #00743a;
   transition:0.4s;
+}
+#upload:active
+{
+  color: #ff317b;
+  transition: 0.1s;
 }
 #download{
   position: absolute;
@@ -68,6 +77,11 @@ position: absolute;
   color: #DDDDDD;
   transition:0.4s;
   font-weight: bold;
+}
+#yourid:active
+{
+  color: #ff317b;
+  transition: 0.1s;
 }
 #loggedAs
 {
@@ -112,6 +126,11 @@ position: absolute;
   color: #DDDDDD;
   transition:0.4s;
   font-weight: bold;
+}
+#yourpass:active
+{
+  color: #ff317b;
+  transition: 0.1s;
 }
 #myp1
 {
@@ -162,6 +181,11 @@ position: absolute;
   color:white;
   border-color: black;
   transition:0.4s;
+}
+#myp3bt:active
+{
+  color: #ff317b;
+  transition: 0.1s;
 }
 #myp4
 {

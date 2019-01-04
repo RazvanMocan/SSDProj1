@@ -96,9 +96,14 @@ mat-button-toggle{
 
 }
 mat-button-toggle:hover{
-  color: #001f3f;
+  color: white;
   background-color: #2ECC40;
   transition: 0.5s;
+}
+mat-button-toggle:active
+{
+  color: black;
+  transition: 0.15s;
 }
 #rateButt
 {

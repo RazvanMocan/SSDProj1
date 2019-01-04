@@ -132,6 +132,11 @@ mat-button-toggle:hover
   background-color: black;
   transition: 0.6s;
 }
+mat-button-toggle:active
+{
+  color: #ff317b;
+  transition: 0.1s;
+}
 mat-icon{
   position: absolute;
   left:40%;
@@ -285,6 +290,11 @@ app-user
   color:black;
 
 }
+#registerComponent:active
+{
+  color:white;
+  transition: 0.1s;
+}
 #actualRegister
 {
   position: absolute;
@@ -319,6 +329,11 @@ app-user
   color:white;
   background-color: black;
 }
+#registerId:active
+{
+  color: #ff317b;
+  transition: 0.1s;
+}
 #registerPwd
 {
   position: absolute;
@@ -327,6 +342,7 @@ app-user
   transition: 0.6s;
   border-radius: 10px;
 }
+
 #registerMail
 {
   position: absolute;
@@ -335,6 +351,7 @@ app-user
   transition: 0.6s;
   border-radius: 10px;
 }
+
 #registerMail:hover
 {
   color:white;
@@ -344,6 +361,16 @@ app-user
 {
   color:white;
   background-color: black;
+}
+#registerPwd:active
+{
+  color: #ff317b;
+  transition: 0.1s;
+}
+#registerMail:active
+{
+  color: #ff317b;
+  transition: 0.1s;
 }
 #registerIdLabel
 {
@@ -414,6 +441,18 @@ app-user
   color:white;
   background-color: black;
   transition: 0.6s;
+}
+#clickRegister:active
+{
+  background-color: black;
+  color:  #3b77ff;
+  transition: 0.1s;
+}
+#clickCloseRegister:active
+{
+  background-color: black;
+  color:  #3b77ff;
+  transition: 0.1s;
 }
 #successReg
 {
@@ -511,6 +550,10 @@ app-user
   background-color: black;
   transition: 0.6s;
 }
+#but2:active{
+  color: #ff317b;
+  transition: 0.1s;
+}
 #getButton
 {
   position: absolute;
@@ -540,6 +583,11 @@ app-user
   color: #0cd2e7;
   background-color: black;
   transition: 0.5s;
+}
+#nextPage:active
+{
+  color: #ff317b;
+  transition: 0.2s;
 }
 .arrow_box {
   position: relative;
