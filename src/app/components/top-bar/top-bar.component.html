@@ -1,5 +1,5 @@
 <body>
-<app-myform id="appmyfrm"></app-myform>
+<app-myform id="appmyfrm" (myOtherEvent)="sendForward($event)"></app-myform>
 <div id="myp3"><button (click)="onLogin()" id="myp3bt">{{log}}</button></div>
 <!--<div id="myp4"><button (click)="onLogout()" id="myp3bt" [style.z-index]="getStyle()">Logout</button></div>-->
 <input id="yourid" [(ngModel)]="usid"  [value]="usid" [style.z-index]="getStyle()" [style.opacity]="z2">

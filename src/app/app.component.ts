@@ -45,6 +45,7 @@ export class AppComponent {
   registerStyle1 = 5;
   registerStyle2 = -5;
   colsAndRows = 3;
+  randVar = 'http://www.thismanslife.co.uk';
   tiles = [
     {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue'},
     {text: 'Two', rating: 2, cols: 3, rows: 3, color: 'lightgreen'},
@@ -219,9 +220,29 @@ getObjects()
     }
   );
 }
+  getSearchedObjects(event)
+  {
+    const geturl = 'http://localhost:7070/byname?name=' + event + '&page=1';
+    this.http.get(geturl).subscribe(
+      (res: any[]) => {
+        console.log(res);
+        console.log(event);
+        this.actualTiles = res;
+      }
+    );
+  }
   doDl( name )
   {
     window.open('http://localhost:7070/download?id=' + name.id);
   }
+  doNewDl( name )
+{
+  window.open('http://localhost:7070/download?id=' + name.id);
+}
+hello2(event)
+{
+  console.log('Hello2');
+  console.log('Here ' + event);
+}
 }
 
