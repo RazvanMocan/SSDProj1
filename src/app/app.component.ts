@@ -45,6 +45,8 @@ export class AppComponent {
   registerStyle1 = 5;
   registerStyle2 = -5;
   colsAndRows = 3;
+  myPage = 1;
+  myMaxPages = 1;
   randVar = 'http://www.thismanslife.co.uk';
   tiles = [
     {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue'},
@@ -243,6 +245,27 @@ hello2(event)
 {
   console.log('Hello2');
   console.log('Here ' + event);
+}
+nextPg()
+{
+  const geturl = 'http://localhost:7070/' + this.myPage;
+  this.http.get(geturl).subscribe(
+    (res: any[]) => {
+      console.log(res);
+      this.actualTiles = res;
+    }
+  );
+  const geturl1 = 'http://localhost:7070/pages' ;
+  this.http.get(geturl1).subscribe(
+    (res: number) => {
+      console.log(res);
+      this.myMaxPages = res;
+    }
+  );
+  if(this.myPage < this.myMaxPages) {
+  this.myPage += 1;
+  }
+
 }
 }
 
