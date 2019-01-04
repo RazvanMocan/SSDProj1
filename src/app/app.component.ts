@@ -268,7 +268,7 @@ nextPg()
       this.myMaxPages = res;
     }
   );
-  if(this.myPage < this.myMaxPages) {
+  if(this.myPage <= this.myMaxPages) {
   this.myPage += 1;
   }
 
