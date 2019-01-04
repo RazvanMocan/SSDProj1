@@ -219,4 +219,15 @@ getObjects()
     }
   );
 }
+  doDl( name )
+  {
+    const url = 'http://localhost:7070/download?id=' + name.id;
+    this.http.get(url).subscribe(
+      res  => {
+        console.log(res);
+
+      }
+    );
+  }
 }
+
