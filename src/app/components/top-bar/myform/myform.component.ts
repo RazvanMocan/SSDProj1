@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {AppModule} from '../../../app.module';
 import {AppComponent} from '../../../app.component';
 import {FormControl} from '@angular/forms';
@@ -11,6 +11,10 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./myform.component.css']
 })
 export class MyformComponent implements OnInit {
+  @Output() myOtherEvent = new EventEmitter<string>();
+  callParent() {
+    this.myOtherEvent.emit(this.myVar);
+  }
   myVar: string;
   myControl = new FormControl();
   options: string[] = ['One', 'Two', 'Three'];
@@ -45,4 +49,12 @@ export class MyformComponent implements OnInit {
     this.parent.myVar = this.myVar;
     console.log('123');
   }
+  myFunc(event)
+  {
+    if (event.key === 'Enter') {
+    this.callParent();
+    console.log(this.myVar);
+    }
+  }
+
 }

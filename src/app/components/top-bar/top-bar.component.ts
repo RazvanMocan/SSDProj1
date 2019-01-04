@@ -8,9 +8,14 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 })
 export class TopBarComponent implements OnInit {
   @Output() myEvent = new EventEmitter<string>();
-
+  @Output() myEventForwarded = new EventEmitter<string>();
+  myAux = '';
   callParent() {
     this.myEvent.emit('eventDesc');
+  }
+  callParent2()
+  {
+    this.myEventForwarded.emit(this.myAux);
   }
 @Input() usid: string = "";
 pwd: string = "";
@@ -77,5 +82,12 @@ showUser()
 }
   getStyle() {
       return this.z1;
+  }
+  sendForward(event)
+  {
+    console.log('Hello');
+    console.log(event);
+    this,this.myAux=event;
+    this.callParent2();
   }
 }
