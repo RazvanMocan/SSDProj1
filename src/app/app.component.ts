@@ -29,6 +29,7 @@ export class AppComponent {
   uploadTime: '10-10-2010';
 }
 */
+ //exampleTile = new TileClass();
   isAdmin = 1;
   isRegister = 1;
   download = 'Download';
@@ -218,4 +219,9 @@ getObjects()
     }
   );
 }
+  doDl( name )
+  {
+    window.open('http://localhost:7070/download?id=' + name.id);
+  }
 }
+
