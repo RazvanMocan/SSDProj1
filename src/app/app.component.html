@@ -22,7 +22,7 @@
       <path fill="#000" d="M0.25,1H0c0,0,0-0.659,0-0.916c0.083-0.303,0.158,0.334,0.25,0C0.25,0.327,0.25,1,0.25,1z"/>
     </pattern>
 
-    <text id="text" transform="translate(2,116)" font-family="'Cabin Condensed'" font-size="161.047">Best Dl</text>
+    <text id="text" transform="translate(2,116)" font-family="'Cabin Condensed'" font-size="101.047">Downloads</text>
 
     <mask id="text-mask">
       <use x="0" y="0" xlink:href="#text" opacity="1" fill="#ffffff"/>
@@ -51,7 +51,7 @@
 
 </svg>
 
-<app-top-bar  [style.z-index]="getStyle()" (myEventForwarded)="getSearchedObjects($event)" (myEvent)="getSpecStyle($event)"></app-top-bar>
+<app-top-bar  [style.z-index]="getStyle()" (myEventUpload)="myUploadFct($event)" (myEventGetStartTiles)="firstTiles($event)" (myEventForwarded)="getSearchedObjects($event)" (myEvent)="getSpecStyle($event)"></app-top-bar>
 <div id="idnews" [style.z-index]="getStyle()">News</div>
 <div id="myp3"><button (click)="onLeaveAdmin()" id="myp3bt">Return to login</button></div>
 <app-news [style.z-index]="getStyle()"></app-news>
@@ -114,8 +114,9 @@
 </div>
 <!--<app-banusr id="ban" [style.z-index]="getStyle()"></app-banusr>
 !-->
-<div id="fakeUpload" (click)="setFakeStyle()"></div>
-<button id="getButton" (click)="getObjects()">Get</button>
-<div id="nextPage" class="arrow_box" (click)="nextPg()">Next page</div>
+<!--<div id="fakeUpload" (click)="setFakeStyle()"></div>-->
+<!--<button id="getButton" (click)="getObjects()">Get</button>-->
+<div id="nextPage" class="arrow_box" (click)="nextPg()" [style.z-index]="getStyle()">Next page</div>
+
 </body>
 

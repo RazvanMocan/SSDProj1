@@ -9,6 +9,8 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 export class TopBarComponent implements OnInit {
   @Output() myEvent = new EventEmitter<string>();
   @Output() myEventForwarded = new EventEmitter<string>();
+  @Output() myEventGetStartTiles = new EventEmitter<string>();
+  @Output() myEventUpload = new EventEmitter<string>();
   myAux = '';
   callParent() {
     this.myEvent.emit('eventDesc');
@@ -16,6 +18,14 @@ export class TopBarComponent implements OnInit {
   callParent2()
   {
     this.myEventForwarded.emit(this.myAux);
+  }
+  callParent3()
+  {
+    this.myEventGetStartTiles.emit('Getting tiles');
+  }
+  callParent4()
+  {
+    this.myEventUpload.emit('Upload clicked');
   }
 @Input() usid: string = "";
 pwd: string = "";
@@ -28,6 +38,7 @@ z2=1;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
+    this.callParent3();
   }
 onLogin()
 {
@@ -90,4 +101,5 @@ showUser()
     this,this.myAux=event;
     this.callParent2();
   }
+
 }
