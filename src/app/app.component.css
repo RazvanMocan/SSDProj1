@@ -460,3 +460,18 @@ app-user
   width:19%;
   height:10%;
 }
+#nextPage
+{
+  position:absolute;
+  left:90%;
+  top:55%;
+  width:5%;
+  height:8%;
+  background-color: #0cd2e7;
+  text-align: center;
+  font-size: 30px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
