@@ -41,6 +41,8 @@ rating = [1, 3, 5];
   }
   doRate( name )
   {
+
+    console.log(name);
     console.log(name.rating);
     const url = this.url + `api/rate?id=${1}&mark=${name.rating}`;
     this.http.get(url).subscribe(

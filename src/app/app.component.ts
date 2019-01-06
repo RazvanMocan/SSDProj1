@@ -161,7 +161,6 @@ export class AppComponent {
   signUp()
 {
 
-  console.log("aici");
   if ((this.regMail !== '') && (this.regId.length > 4) && (this.regId !== '') && (this.regPwd.length > 4) && (this.regPwd !== '') && (this.regMail === this.regPwd)) {
     this.setOpacityBriefly();
     this.completeRegId = this.regId;
@@ -171,7 +170,6 @@ export class AppComponent {
     this.regPwd = '';
     this.regMail = '';
 
-    console.log(this.completeRegId + ' ' + this.completeRegPwd);
     const url = this.url + `api/user/signup/${this.completeRegId}`;
     const post = new FormData();
     post.append('password', this.completeRegPwd);
