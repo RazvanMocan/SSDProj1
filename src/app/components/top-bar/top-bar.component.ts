@@ -74,8 +74,10 @@ onLogin()
     console.log(this.usid);
     console.log(this.pwd)
     if (this.usid === 'Logged')
-      if (this.pwd === 'in')
+      if (this.pwd === 'in') {
         this.showUser();
+        this.log = 'Login';
+      }
     if (this.usid === 'user1') {
       if (this.pwd === 'pwd1') {
         this.loggedInUser = 'Logged in as ' + this.usid;
