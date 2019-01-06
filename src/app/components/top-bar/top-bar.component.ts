@@ -12,6 +12,7 @@ export class TopBarComponent implements OnInit {
   @Output() myEventGetStartTiles = new EventEmitter<string>();
   @Output() myEventUpload = new EventEmitter<string>();
   @Output() myLogEvent = new EventEmitter<string>();
+  @Output() myUsersEvent = new EventEmitter<string>();
   myAux = '';
   callParentLog()
   {
@@ -32,6 +33,10 @@ export class TopBarComponent implements OnInit {
   {
     this.myEventUpload.emit('Upload clicked');
   }
+  callParentForUsers()
+  {
+    this.myUsersEvent.emit('Getting users');
+  }
 @Input() usid: string = "";
 pwd: string = "";
 log: string ="Login";
@@ -44,6 +49,7 @@ z2=1;
 
   ngOnInit() {
     this.callParent3();
+    this.callParentForUsers();
   }
 onLogin()
 {

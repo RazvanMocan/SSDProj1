@@ -15,7 +15,7 @@ import {Observable} from 'rxjs';
   //directives: [TopBarComponent]
 })
 export class AppComponent {
-
+  actualTilesUsers: User[];
   actualTiles: TileClass[];
   // title = 'SSDProj';
  /* actualTiles: TileClass[];
@@ -40,7 +40,7 @@ export class AppComponent {
   completeRegId = '';
   completeRegPwd = '';
   completeRegMail = '';
-  downloadNews = 'Ban';
+  downloadNews = 'Ban/Unban';
   successOpacity = 0;
   fakeStyle = -20;
   registerStyle1 = 5;
@@ -230,6 +230,17 @@ getObjects()
     }
   );
 }
+  getUserObjects()
+  {
+    console.log('Getting user objects');
+    const geturl = 'http://localhost:7070/api/all';
+    this.http.get(geturl).subscribe(
+      (res: any[]) => {
+        console.log(res);
+        this.actualTilesUsers = res;
+      }
+    );
+  }
   getSearchedObjects(event)
   {
     const geturl = 'http://localhost:7070/byname?name=' + event + '&page=1';
@@ -268,35 +279,36 @@ nextPg()
     (res: number) => {
       console.log(res);
       this.myMaxPages = res;
+      if(this.myPage === this.myMaxPages)
+      {
+        this.myPage = 1;
+        const geturl = 'http://localhost:7070/' + this.myPage;
+        this.http.get(geturl).subscribe(
+          (res: any[]) => {
+            console.log(res);
+            this.actualTiles = res;
+          }
+        );
+      }
+      if(this.myPage < this.myMaxPages) {
+        this.myPage += 1;
+        const geturl = 'http://localhost:7070/' + this.myPage;
+        this.http.get(geturl).subscribe(
+          (res: any[]) => {
+            console.log(res);
+            this.actualTiles = res;
+          }
+        );
+      }
+
     }
   );
-  if(this.myPage === this.myMaxPages)
-  {
-   this.myPage = 1;
-    const geturl = 'http://localhost:7070/' + this.myPage;
-    this.http.get(geturl).subscribe(
-      (res: any[]) => {
-        console.log(res);
-        this.actualTiles = res;
-      }
-    );
-  }
-  if(this.myPage < this.myMaxPages) {
-    this.myPage += 1;
-    const geturl = 'http://localhost:7070/' + this.myPage;
-    this.http.get(geturl).subscribe(
-      (res: any[]) => {
-        console.log(res);
-        this.actualTiles = res;
-      }
-    );
-  }
 
 }
  firstTiles(event)
  {
    console.log(event);
-   const geturl = 'http://localhost:7070/latest'; //probably will be 'http://localhost:7070/1'
+   const geturl = 'http://localhost:7070/1'; //probably will be 'http://localhost:7070/1'
    this.http.get(geturl).subscribe(
      (res: any[]) => {
        console.log(res);
@@ -314,6 +326,10 @@ nextPg()
  {
    if(this.someoneLogged)
    this.someoneLogged *= (-1);
+ }
+ banUser(user)
+ {
+   //some post somewhere (probably a link having user.userName) with user.isBanned set to True;
  }
 }
 
