@@ -51,10 +51,10 @@
 
 </svg>
 
-<app-top-bar  [style.z-index]="getStyle()" (myEventUpload)="myUploadFct($event)" (myEventGetStartTiles)="firstTiles($event)" (myEventForwarded)="getSearchedObjects($event)" (myEvent)="getSpecStyle($event)"></app-top-bar>
+<app-top-bar  [style.z-index]="getStyle()" (myUsersEvent)="getUserObjects($event)" (myLogEvent)="loggedIn($event)" (myEventUpload)="myUploadFct($event)" (myEventGetStartTiles)="firstTiles($event)" (myEventForwarded)="getSearchedObjects($event)" (myEvent)="getSpecStyle($event)"></app-top-bar>
 <div id="idnews" [style.z-index]="getStyle()">News</div>
 <div id="myp3"><button (click)="onLeaveAdmin()" id="myp3bt">Return to login</button></div>
-<app-news [style.z-index]="getStyle()"></app-news>
+<app-news [style.z-index]="getStyle()" (myDlEvent)="doNewsDl($event)"></app-news>
 <!--
 <app-user></app-user>
 <div id="testing">
@@ -72,9 +72,13 @@
     *ngFor="let tile of actualTiles"
     [colspan]="colsAndRows"
     [rowspan]="colsAndRows">
-    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.name}}</a></p>  <mat-slider  [(ngModel)]="tile.rating" min="1" max="10" step="1" value="1" thumbLabel tickInterval="1"></mat-slider>
+    <p class="tile_p"><a target="_blank">{{tile.name}}</a></p>  <mat-slider  [(ngModel)]="tile.rating" min="1" max="10" step="1" value="1" thumbLabel tickInterval="1"></mat-slider>
     <mat-button-toggle id="but1"(click)="doNewDl(tile)">{{download}}</mat-button-toggle>
     <mat-button-toggle id="but2"(click)="doRate(tile)">Rate</mat-button-toggle>
+    <div id="nameUploader">{{tile.uploader}}</div>
+    <div id="numberDownloads">{{tile.downloads}}</div>
+    <div id="nameUploader1">By</div>
+    <div id="numberDownloads1">No. Dl</div>
   </mat-grid-tile>
 </mat-grid-list>
 
@@ -84,21 +88,39 @@
     <!--*ngFor="let tile of tiles"-->
     <!--[colspan]="colsAndRows"-->
     <!--[rowspan]="colsAndRows">-->
-    <!--<p class="tile_p"><a  target="_blank">{{tile.text}}</a></p>  <mat-slider  [(ngModel)]="tile.rating" min="1" max="10" step="1" value="1" thumbLabel tickInterval="1"></mat-slider>-->
+    <!--<p class="tile_p"><a target="_blank">{{tile.text}}</a></p>  <mat-slider  [(ngModel)]="tile.rating" min="1" max="10" step="1" value="1" thumbLabel tickInterval="1"></mat-slider>-->
     <!--<mat-button-toggle id="but1" (click)="doNewDl(tile)" >{{download}}</mat-button-toggle>-->
     <!--<mat-button-toggle id="but2"(click)="doRate(tile)">Rate</mat-button-toggle>-->
+    <!--<div id="nameUploader">UploaderX</div>-->
+    <!--<div id="numberDownloads">10</div>-->
+    <!--<div id="nameUploader1">By</div>-->
+    <!--<div id="numberDownloads1">No. Dl</div>-->
   <!--</mat-grid-tile>-->
 <!--</mat-grid-list>-->
 
+<!--<mat-grid-list id="adminlist" cols="11" rowHeight="100px" [style.z-index]="getStyle2()">-->
+  <!--<mat-grid-tile id="admintiles"-->
+                 <!--*ngFor="let tile of tilesUsers"-->
+                 <!--[colspan]="colsAndRows"-->
+                 <!--[rowspan]="colsAndRows">-->
+    <!--<p class="tile_p"><a target="_blank">{{tile.text}}</a></p>-->
+    <!--<mat-button-toggle (click)="doDownload2()">{{downloadNews}}</mat-button-toggle>-->
+    <!--<div id="isUserBanned">IsBanned:1</div>-->
+  <!--</mat-grid-tile>-->
+<!--</mat-grid-list>-->
+
+
 <mat-grid-list id="adminlist" cols="11" rowHeight="100px" [style.z-index]="getStyle2()">
   <mat-grid-tile id="admintiles"
-                 *ngFor="let tile of tilesUsers"
-                 [colspan]="tile.cols"
-                 [rowspan]="tile.rows">
-    <p class="tile_p"><a href="http://www.thismanslife.co.uk" target="_blank">{{tile.text}}</a></p>
-    <mat-button-toggle (click)="doDownload2()">{{downloadNews}}</mat-button-toggle>
+                 *ngFor="let tile of actualTilesUsers"
+                 [colspan]="colsAndRows"
+                 [rowspan]="colsAndRows">
+    <p class="tile_p"><a target="_blank">{{tile.userName}}</a></p>
+    <mat-button-toggle (click)="banUser(tile)">{{downloadNews}}</mat-button-toggle>
+        <div id="isUserBanned">IsBanned:{{tile.isBanned}}</div>
   </mat-grid-tile>
 </mat-grid-list>
+
 <div id="minibkg"></div>
 <div id = "registerComponent" (click)="changeStyleRegister1()" [style.z-index]="getStyleRegister1()">Register</div>
 <div id = "actualRegister"  [style.z-index]="getStyleRegister2()">

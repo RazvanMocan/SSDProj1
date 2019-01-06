@@ -11,7 +11,13 @@ export class TopBarComponent implements OnInit {
   @Output() myEventForwarded = new EventEmitter<string>();
   @Output() myEventGetStartTiles = new EventEmitter<string>();
   @Output() myEventUpload = new EventEmitter<string>();
+  @Output() myLogEvent = new EventEmitter<string>();
+  @Output() myUsersEvent = new EventEmitter<string>();
   myAux = '';
+  callParentLog()
+  {
+    this.myLogEvent.emit('eventLog');
+  }
   callParent() {
     this.myEvent.emit('eventDesc');
   }
@@ -27,6 +33,10 @@ export class TopBarComponent implements OnInit {
   {
     this.myEventUpload.emit('Upload clicked');
   }
+  callParentForUsers()
+  {
+    this.myUsersEvent.emit('Getting users');
+  }
 @Input() usid: string = "";
 pwd: string = "";
 log: string ="Login";
@@ -39,6 +49,7 @@ z2=1;
 
   ngOnInit() {
     this.callParent3();
+    this.callParentForUsers();
   }
 onLogin()
 {
@@ -47,6 +58,8 @@ onLogin()
     this.z2 = 1;
     this.log = 'Login';
     this.isAuthenticated = 0;
+    console.log("aaasd");
+    this.callParentLog();
   }
   else {
 //this.usid="Logged";
@@ -64,7 +77,7 @@ onLogin()
         this.log = 'Logout';
         this.isAuthenticated = 1;
         this.getStyle();
-
+        this.callParentLog();
       }
   }
   const url = `http://localhost:7070/api/user/login/${this.usid}`;
@@ -98,7 +111,7 @@ showUser()
   {
     console.log('Hello');
     console.log(event);
-    this,this.myAux=event;
+    this.myAux=event;
     this.callParent2();
   }
 

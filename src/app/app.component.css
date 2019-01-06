@@ -617,4 +617,69 @@ app-user
   border-width: 36px;
   margin-top: -36px;
 }
-
+#isUserBanned
+{
+  position: absolute;
+  top:86%;
+}
+#nameUploader
+ {
+   position: absolute;
+   top:35%;
+   left:4%;
+  font-size: 25px;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+ }
+#numberDownloads
+{
+  font-size: 40px;
+  position: absolute;
+  top:35%;
+  left:78%;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#nameUploader1
+{
+  position: absolute;
+  top:20%;
+  left:11%;
+  font-size: 40px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+#numberDownloads1
+{
+  font-size: 40px;
+  position: absolute;
+  top:20%;
+  left:72%;
+  text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/*
+#but1
+{
+  position: absolute;
+  left:12%;
+  top:64%;
+}
+#but2
+{
+  position: absolute;
+  left:22%;
+  top:82.5%;
+}
+*/

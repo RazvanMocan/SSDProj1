@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
 import {TileClass} from '../../tile-class';
@@ -9,6 +9,10 @@ import {HttpClient, HttpParams} from '@angular/common/http';
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
+  @Output() myDlEvent = new EventEmitter<string>();
+  callParentDownload(name) {
+    this.myDlEvent.emit('http://localhost:7070/download?id=' + name.id);
+  }
 heroes: string[] = [ 'Object1', 'Object2', 'Object3'];
 tiles: TileClass[];
 url = 'http://localhost:7070/';
@@ -32,7 +36,8 @@ rating = [1, 3, 5];
   }
   doNewDl( name )
   {
-    window.open('http://localhost:7070/download?id=' + name.id);
+    this.callParentDownload(name);
+    //window.open('http://localhost:7070/download?id=' + name.id);
   }
   doRate( name)
   {

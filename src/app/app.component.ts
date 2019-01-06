@@ -15,7 +15,7 @@ import {Observable} from 'rxjs';
   //directives: [TopBarComponent]
 })
 export class AppComponent {
-
+  actualTilesUsers: User[];
   actualTiles: TileClass[];
   // title = 'SSDProj';
  /* actualTiles: TileClass[];
@@ -31,6 +31,7 @@ export class AppComponent {
 */
  //exampleTile = new TileClass();
   isAdmin = 1;
+  someoneLogged = -1;
   isRegister = 1;
   download = 'Download';
   regId = '';
@@ -39,7 +40,7 @@ export class AppComponent {
   completeRegId = '';
   completeRegPwd = '';
   completeRegMail = '';
-  downloadNews = 'Ban';
+  downloadNews = 'Ban/Unban';
   successOpacity = 0;
   fakeStyle = -20;
   registerStyle1 = 5;
@@ -88,13 +89,15 @@ export class AppComponent {
   }
   onUpload()
   {
-    const fd = new FormData();
-    fd.append('file', this.selectedFile, this.selectedFile.name);
-    this.http.post(this.url,fd).subscribe(
-      res => {
-        console.log(res);
-      }
-    );
+    if(this.someoneLogged === 1) {
+      const fd = new FormData();
+      fd.append('file', this.selectedFile, this.selectedFile.name);
+      this.http.post(this.url, fd).subscribe(
+        res => {
+          console.log(res);
+        }
+      );
+    }
   }
   getStyle() {
   if (this.isAdmin === 0)
@@ -131,6 +134,7 @@ export class AppComponent {
     {
       this.fakeStyle = -20;
       this.registerStyle1 = -20;
+      this.someoneLogged *= (-1);
       return -5;
   }
     return 5;
@@ -139,6 +143,7 @@ export class AppComponent {
   {
     this.isAdmin=1;
     this.registerStyle1 = 5;
+    this.someoneLogged = -1;
   }
 
 
@@ -157,6 +162,7 @@ export class AppComponent {
       this.downloadNews = 'Unban';
     else
       this.downloadNews = 'Ban';
+
   }
   signUp()
 {
@@ -204,18 +210,19 @@ setFakeStyle()
   }
 doRate( name )
 {
-  name.toLocaleString().subs
-  console.log(name.rating);
-  const url = this.url + `api/rate?id=${name.id}&mark=${name.rating}`;
-  this.http.get(url).subscribe(
-    res  => {
-      console.log(res);
-    }
-  );
+  if(this.someoneLogged === 1) {
+    console.log(name.rating);
+    const url = this.url + `api/rate?id=${1}&mark=${name.rating}`;
+    this.http.get(url).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
+  }
 }
 getObjects()
 {
-  const geturl = 'http://localhost:7070/1';
+  const geturl = 'http://localhost:7070/latest';
   this.http.get(geturl).subscribe(
     (res: any[]) => {
       console.log(res);
@@ -223,6 +230,17 @@ getObjects()
     }
   );
 }
+  getUserObjects()
+  {
+    console.log('Getting user objects');
+    const geturl = 'http://localhost:7070/api/all';
+    this.http.get(geturl).subscribe(
+      (res: any[]) => {
+        console.log(res);
+        this.actualTilesUsers = res;
+      }
+    );
+  }
   getSearchedObjects(event)
   {
     const geturl = 'http://localhost:7070/byname?name=' + event + '&page=1';
@@ -238,8 +256,14 @@ getObjects()
   {
     window.open('http://localhost:7070/download?id=' + name.id);
   }
+  doNewsDl( name )
+  {
+    if(this.someoneLogged === 1 )
+    window.open(name);
+  }
   doNewDl( name )
 {
+  if(this.someoneLogged === 1)
   window.open('http://localhost:7070/download?id=' + name.id);
 }
 hello2(event)
@@ -253,16 +277,11 @@ nextPg()
   const geturl1 = 'http://localhost:7070/pages' ;
   this.http.get(geturl1).subscribe(
     (res: number) => {
-      console.log('res');
       console.log(res);
       this.myMaxPages = res;
-      console.log(this.myMaxPages);
-      console.log(this.myPage);
       if(this.myPage === this.myMaxPages)
       {
         this.myPage = 1;
-        console.log("ok meu");
-
         const geturl = 'http://localhost:7070/' + this.myPage;
         this.http.get(geturl).subscribe(
           (res: any[]) => {
@@ -281,6 +300,7 @@ nextPg()
           }
         );
       }
+
     }
   );
 
@@ -301,6 +321,15 @@ nextPg()
  {
    console.log(event);
    this.setFakeStyle();
+ }
+ loggedIn(event)
+ {
+   if(this.someoneLogged)
+   this.someoneLogged *= (-1);
+ }
+ banUser(user)
+ {
+   //some post somewhere (probably a link having user.userName) with user.isBanned set to True;
  }
 }
 
