@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
+import {User} from '../../user';
 
 @Component({
   selector: 'app-top-bar',
@@ -59,6 +60,12 @@ onLogin()
     this.log = 'Login';
     this.isAuthenticated = 0;
     console.log("aaasd");
+    const geturl = 'http://localhost:7070/api/user/logout';
+    this.http.get(geturl).subscribe(
+      (res: any[]) => {
+        console.log(res);
+      }
+    );
     this.callParentLog();
   }
   else {
@@ -83,13 +90,13 @@ onLogin()
 
 
   }
-  const url = `http://localhost:7070/api/user/login/${this.usid}`;
-  const post = new HttpParams().set('password' , this.pwd);
-  this.http.get(url, {params: post}).subscribe(
+  const url = `http://localhost:7070/api/user/login/${this.usid}?password=` + this.pwd;
+  // const post = new HttpParams().set('password' , this.pwd);
+  this.http.get(url).subscribe(
     res => {
       console.log(res);
       const myurl = 'http://localhost:7070/api/loggedin';
-      this.http.get(url).subscribe(
+      this.http.get(myurl).subscribe(
         res1 => {
 
           console.log(res1);
@@ -98,7 +105,7 @@ onLogin()
 
           else
           {
-            this.loggedInUser = 'Logged in as ' + res1.userName;
+            this.loggedInUser = 'Logged in as ' + (<User>res1).userName;
             this.z1 = -15;
             this.z2 = 0;
             this.log = 'Logout';
