@@ -11,7 +11,12 @@ export class TopBarComponent implements OnInit {
   @Output() myEventForwarded = new EventEmitter<string>();
   @Output() myEventGetStartTiles = new EventEmitter<string>();
   @Output() myEventUpload = new EventEmitter<string>();
+  @Output() myLogEvent = new EventEmitter<string>();
   myAux = '';
+  callParentLog()
+  {
+    this.myLogEvent.emit('eventLog');
+  }
   callParent() {
     this.myEvent.emit('eventDesc');
   }
@@ -64,7 +69,7 @@ onLogin()
         this.log = 'Logout';
         this.isAuthenticated = 1;
         this.getStyle();
-
+        this.callParentLog();
       }
   }
   const url = `http://localhost:7070/api/user/login/${this.usid}`;
@@ -98,7 +103,7 @@ showUser()
   {
     console.log('Hello');
     console.log(event);
-    this,this.myAux=event;
+    this.myAux=event;
     this.callParent2();
   }
 

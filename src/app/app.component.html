@@ -51,10 +51,10 @@
 
 </svg>
 
-<app-top-bar  [style.z-index]="getStyle()" (myEventUpload)="myUploadFct($event)" (myEventGetStartTiles)="firstTiles($event)" (myEventForwarded)="getSearchedObjects($event)" (myEvent)="getSpecStyle($event)"></app-top-bar>
+<app-top-bar  [style.z-index]="getStyle()" (myLogEvent)="loggedIn($event)" (myEventUpload)="myUploadFct($event)" (myEventGetStartTiles)="firstTiles($event)" (myEventForwarded)="getSearchedObjects($event)" (myEvent)="getSpecStyle($event)"></app-top-bar>
 <div id="idnews" [style.z-index]="getStyle()">News</div>
 <div id="myp3"><button (click)="onLeaveAdmin()" id="myp3bt">Return to login</button></div>
-<app-news [style.z-index]="getStyle()"></app-news>
+<app-news [style.z-index]="getStyle()" (myDlEvent)="doNewsDl($event)"></app-news>
 <!--
 <app-user></app-user>
 <div id="testing">
