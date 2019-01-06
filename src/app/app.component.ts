@@ -300,8 +300,8 @@ getObjects()
       (res: any) => {
         console.log(res);
         console.log(event);
-        if((res === false) && (this.someoneLogged ===1))
-          window.open('http://localhost:7070/download?id=' + name.id);
+        if((res === false) && (this.someoneLogged === 1))
+          this.myWindowFct('http://localhost:7070/download?id=' + name.id);
       }
     );
 
@@ -315,7 +315,7 @@ getObjects()
         console.log(res);
         console.log(event);
         if((res === false) && (this.someoneLogged ===1))
-          window.open(name);
+          this.myWindowFct(name);
       }
     );
   }
@@ -326,11 +326,16 @@ getObjects()
     (res: any) => {
       console.log(res);
       console.log(event);
-      if((res === false) && (this.someoneLogged ===1))
-        window.open('http://localhost:7070/download?id=' + name.id);
+      if((res === false) && (this.someoneLogged === 1))
+        this.myWindowFct('http://localhost:7070/download?id=' + name.id);
     }
   );
+  //console.log('ssa');
 }
+ myWindowFct(url)
+ {
+   window.open(url);
+ }
 hello2(event)
 {
   console.log('Hello2');

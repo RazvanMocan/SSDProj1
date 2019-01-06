@@ -74,8 +74,10 @@ onLogin()
     console.log(this.usid);
     console.log(this.pwd)
     if (this.usid === 'Logged')
-      if (this.pwd === 'in')
+      if (this.pwd === 'in') {
         this.showUser();
+        this.log = 'Login';
+      }
     if (this.usid === 'user1') {
       if (this.pwd === 'pwd1') {
         this.loggedInUser = 'Logged in as ' + this.usid;
@@ -89,43 +91,42 @@ onLogin()
     }
 
 
-  }
-  const url = `http://localhost:7070/api/user/login/${this.usid}`;
-  const post = new HttpParams().set('password' , this.pwd);
-  this.http.get(url, {params: post}).subscribe(
-    res => {
-      console.log(res);
-      const myurl = 'http://localhost:7070/api/loggedin';
-      this.http.get(myurl).subscribe(
-        (res1 :any) => {
+    const url = `http://localhost:7070/api/user/login/${this.usid}`;
+    const post = new HttpParams().set('password', this.pwd);
+    this.http.get(url, {params: post}).subscribe(
+      res => {
+        console.log(res);
+        const myurl = 'http://localhost:7070/api/loggedin';
+        this.http.get(myurl).subscribe(
+          (res1: any) => {
 
-          console.log(res1);
-          if(res1 === null)
-            console.log('Bad user/pwd');
+            console.log(res1);
+            if (res1 === null)
+              console.log('Bad user/pwd');
 
-          else {
-            if (res1.admin === true) {
-            this.loggeduser = res1.userName;
+            else {
+              if (res1.admin === true) {
+                this.loggeduser = res1.userName;
 
-              //this.log = "Logout";
-              console.log(this.loggeduser);
-              this.isAuthenticated = 1;
-              this.callParent();
-            } else {
-              this.loggedInUser = 'Logged in as ' + res1.userName;
-              this.z1 = -15;
-              this.z2 = 0;
-              this.log = 'Logout';
-              this.isAuthenticated = 1;
-              this.getStyle();
-              this.callParentLog();
+                //this.log = "Logout";
+                console.log(this.loggeduser);
+                this.isAuthenticated = 1;
+                this.callParent();
+              } else {
+                this.loggedInUser = 'Logged in as ' + res1.userName;
+                this.z1 = -15;
+                this.z2 = 0;
+                this.log = 'Logout';
+                this.isAuthenticated = 1;
+                this.getStyle();
+                this.callParentLog();
+              }
             }
           }
-        }
-      );
-    }
-  );
-
+        );
+      }
+    );
+  }
 
 }
 
