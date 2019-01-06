@@ -161,7 +161,6 @@ export class AppComponent {
   signUp()
 {
 
-
   if ((this.regMail !== '') && (this.regId.length > 4) && (this.regId !== '') && (this.regPwd.length > 4) && (this.regPwd !== '') && (this.regMail === this.regPwd)) {
     this.setOpacityBriefly();
     this.completeRegId = this.regId;
@@ -171,9 +170,9 @@ export class AppComponent {
     this.regPwd = '';
     this.regMail = '';
 
-    const url = this.url + `api/user/signup/${this.regId}`;
+    const url = this.url + `api/user/signup/${this.completeRegId}`;
     const post = new FormData();
-    post.append('password', this.regPwd);
+    post.append('password', this.completeRegPwd);
     this.http.post(url, post).subscribe(
       res => {
         console.log(res);
@@ -225,7 +224,7 @@ getObjects()
 }
   getSearchedObjects(event)
   {
-    const geturl = 'http://localhost:7070/ + something' + event;
+    const geturl = 'http://localhost:7070/byname?name=' + event + '&page=1';
     this.http.get(geturl).subscribe(
       (res: any[]) => {
         console.log(res);
@@ -236,13 +235,7 @@ getObjects()
   }
   doDl( name )
   {
-    const url = 'http://localhost:7070/download?id=' + name.id;
-    this.http.get(url).subscribe(
-      res  => {
-        console.log(res);
-
-      }
-    );
+    window.open('http://localhost:7070/download?id=' + name.id);
   }
   doNewDl( name )
 {
