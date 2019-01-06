@@ -205,7 +205,7 @@ setFakeStyle()
 doRate( name )
 {
   console.log(name.rating);
-  const url = this.url + `api/rate?id=${1}&mark=${name.rating}`;
+  const url = this.url + `api/rate?id=${name.id}&mark=${name.rating}`;
   this.http.get(url).subscribe(
     res  => {
       console.log(res);

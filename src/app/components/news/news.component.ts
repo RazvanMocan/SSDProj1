@@ -25,11 +25,6 @@ rating = [1, 3, 5];
         (res: any[]) => {
           console.log(res);
           this.tiles = res;
-          let i = 0;
-          for (let re of res) {
-            this.heroes[i] = (<TileClass>re).name.toString();
-            i++;
-          }
           console.log('Got news tiles');
         }
       );
@@ -39,12 +34,11 @@ rating = [1, 3, 5];
   {
     window.open('http://localhost:7070/download?id=' + name.id);
   }
-  doRate( name )
+  doRate( name)
   {
 
-    console.log(name);
-    console.log(name.rating);
-    const url = this.url + `api/rate?id=${1}&mark=${name.rating}`;
+    console.log((<TileClass>name).id);
+    const url = this.url + `api/rate?id=${name.id}&mark=${name.rating}`;
     this.http.get(url).subscribe(
       res  => {
         console.log(res);
