@@ -204,6 +204,7 @@ setFakeStyle()
   }
 doRate( name )
 {
+  name.toLocaleString().subs
   console.log(name.rating);
   const url = this.url + `api/rate?id=${name.id}&mark=${name.rating}`;
   this.http.get(url).subscribe(
@@ -214,7 +215,7 @@ doRate( name )
 }
 getObjects()
 {
-  const geturl = 'http://localhost:7070/latest';
+  const geturl = 'http://localhost:7070/1';
   this.http.get(geturl).subscribe(
     (res: any[]) => {
       console.log(res);
@@ -252,37 +253,42 @@ nextPg()
   const geturl1 = 'http://localhost:7070/pages' ;
   this.http.get(geturl1).subscribe(
     (res: number) => {
+      console.log('res');
       console.log(res);
       this.myMaxPages = res;
+      console.log(this.myMaxPages);
+      console.log(this.myPage);
+      if(this.myPage === this.myMaxPages)
+      {
+        this.myPage = 1;
+        console.log("ok meu");
+
+        const geturl = 'http://localhost:7070/' + this.myPage;
+        this.http.get(geturl).subscribe(
+          (res: any[]) => {
+            console.log(res);
+            this.actualTiles = res;
+          }
+        );
+      }
+      if(this.myPage < this.myMaxPages) {
+        this.myPage += 1;
+        const geturl = 'http://localhost:7070/' + this.myPage;
+        this.http.get(geturl).subscribe(
+          (res: any[]) => {
+            console.log(res);
+            this.actualTiles = res;
+          }
+        );
+      }
     }
   );
-  if(this.myPage === this.myMaxPages)
-  {
-   this.myPage = 1;
-    const geturl = 'http://localhost:7070/' + this.myPage;
-    this.http.get(geturl).subscribe(
-      (res: any[]) => {
-        console.log(res);
-        this.actualTiles = res;
-      }
-    );
-  }
-  if(this.myPage < this.myMaxPages) {
-    this.myPage += 1;
-    const geturl = 'http://localhost:7070/' + this.myPage;
-    this.http.get(geturl).subscribe(
-      (res: any[]) => {
-        console.log(res);
-        this.actualTiles = res;
-      }
-    );
-  }
 
 }
  firstTiles(event)
  {
    console.log(event);
-   const geturl = 'http://localhost:7070/latest'; //probably will be 'http://localhost:7070/1'
+   const geturl = 'http://localhost:7070/1'; //probably will be 'http://localhost:7070/1'
    this.http.get(geturl).subscribe(
      (res: any[]) => {
        console.log(res);
