@@ -11,12 +11,12 @@ export class TopBarComponent implements OnInit {
   @Output() myEventForwarded = new EventEmitter<string>();
   @Output() myEventGetStartTiles = new EventEmitter<string>();
   @Output() myEventUpload = new EventEmitter<string>();
-  @Output() myLogEvent = new EventEmitter<string>();
+  @Output() myLogEvent = new EventEmitter<boolean>();
   @Output() myUsersEvent = new EventEmitter<string>();
   myAux = '';
   callParentLog()
   {
-    this.myLogEvent.emit('eventLog');
+    this.myLogEvent.emit();
   }
   callParent() {
     this.myEvent.emit('eventDesc');
