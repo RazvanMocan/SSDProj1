@@ -255,13 +255,7 @@ hello2(event)
 }
 nextPg()
 {
-  const geturl = 'http://localhost:7070/' + this.myPage;
-  this.http.get(geturl).subscribe(
-    (res: any[]) => {
-      console.log(res);
-      this.actualTiles = res;
-    }
-  );
+
   const geturl1 = 'http://localhost:7070/pages' ;
   this.http.get(geturl1).subscribe(
     (res: number) => {
@@ -269,8 +263,26 @@ nextPg()
       this.myMaxPages = res;
     }
   );
-  if(this.myPage <= this.myMaxPages) {
-  this.myPage += 1;
+  if(this.myPage === this.myMaxPages)
+  {
+   this.myPage = 1;
+    const geturl = 'http://localhost:7070/' + this.myPage;
+    this.http.get(geturl).subscribe(
+      (res: any[]) => {
+        console.log(res);
+        this.actualTiles = res;
+      }
+    );
+  }
+  if(this.myPage < this.myMaxPages) {
+    this.myPage += 1;
+    const geturl = 'http://localhost:7070/' + this.myPage;
+    this.http.get(geturl).subscribe(
+      (res: any[]) => {
+        console.log(res);
+        this.actualTiles = res;
+      }
+    );
   }
 
 }
