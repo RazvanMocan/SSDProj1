@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import {User} from '../../user';
 
 @Component({
   selector: 'app-top-bar',
@@ -66,6 +65,7 @@ onLogin()
         console.log(res);
       }
     );
+
     this.callParentLog();
   }
   else {
@@ -90,29 +90,37 @@ onLogin()
 
 
   }
-  const url = `http://localhost:7070/api/user/login/${this.usid}?password=` + this.pwd;
-  // const post = new HttpParams().set('password' , this.pwd);
-  this.http.get(url).subscribe(
+  const url = `http://localhost:7070/api/user/login/${this.usid}`;
+  const post = new HttpParams().set('password' , this.pwd);
+  this.http.get(url, {params: post}).subscribe(
     res => {
       console.log(res);
       const myurl = 'http://localhost:7070/api/loggedin';
       this.http.get(myurl).subscribe(
-        res1 => {
+        (res1 :any) => {
 
           console.log(res1);
           if(res1 === null)
             console.log('Bad user/pwd');
 
-          else
-          {
-            this.loggedInUser = 'Logged in as ' + (<User>res1).userName;
-            this.z1 = -15;
-            this.z2 = 0;
-            this.log = 'Logout';
-            this.isAuthenticated = 1;
-            this.getStyle();
-            this.callParentLog();
-          }            
+          else {
+            if (res1.admin === true) {
+            this.loggeduser = res1.userName;
+
+              //this.log = "Logout";
+              console.log(this.loggeduser);
+              this.isAuthenticated = 1;
+              this.callParent();
+            } else {
+              this.loggedInUser = 'Logged in as ' + res1.userName;
+              this.z1 = -15;
+              this.z2 = 0;
+              this.log = 'Logout';
+              this.isAuthenticated = 1;
+              this.getStyle();
+              this.callParentLog();
+            }
+          }
         }
       );
     }

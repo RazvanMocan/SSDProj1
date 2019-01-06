@@ -97,18 +97,18 @@
     <!--<div id="numberDownloads1">No. Dl</div>-->
   <!--</mat-grid-tile>-->
 <!--</mat-grid-list>-->
-
-<!--<mat-grid-list id="adminlist" cols="11" rowHeight="100px" [style.z-index]="getStyle2()">-->
-  <!--<mat-grid-tile id="admintiles"-->
-                 <!--*ngFor="let tile of tilesUsers"-->
-                 <!--[colspan]="colsAndRows"-->
-                 <!--[rowspan]="colsAndRows">-->
-    <!--<p class="tile_p"><a target="_blank">{{tile.text}}</a></p>-->
-    <!--<mat-button-toggle (click)="doDownload2()">{{downloadNews}}</mat-button-toggle>-->
-    <!--<div id="isUserBanned">IsBanned:1</div>-->
-  <!--</mat-grid-tile>-->
-<!--</mat-grid-list>-->
-
+<!--
+<mat-grid-list id="adminlist" cols="11" rowHeight="100px" [style.z-index]="getStyle2()">
+  <mat-grid-tile id="admintiles"
+                 *ngFor="let tile of tilesUsers"
+                 [colspan]="colsAndRows"
+                 [rowspan]="colsAndRows">
+    <p class="tile_p"><a target="_blank">{{tile.text}}</a></p>
+    <mat-button-toggle (click)="doDownload2()">{{downloadNews}}</mat-button-toggle>
+    <div id="isUserBanned">IsBanned:1</div>
+  </mat-grid-tile>
+</mat-grid-list>
+-->
 
 <mat-grid-list id="adminlist" cols="11" rowHeight="100px" [style.z-index]="getStyle2()">
   <mat-grid-tile id="admintiles"
@@ -117,7 +117,7 @@
                  [rowspan]="colsAndRows">
     <p class="tile_p"><a target="_blank">{{tile.userName}}</a></p>
     <mat-button-toggle (click)="banUser(tile)">{{downloadNews}}</mat-button-toggle>
-    <div id="isUserBanned">IsBanned:{{tile.isBanned}}</div>
+        <div id="isUserBanned">IsBanned:{{tile.isBanned}}</div>
   </mat-grid-tile>
 </mat-grid-list>
 
