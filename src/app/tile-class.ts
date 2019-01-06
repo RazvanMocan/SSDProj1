@@ -8,6 +8,7 @@ export class TileClass {
   path: String;
   // uploader: User;
   // rating: Rating[];
+  rating: number;
   uploadTime: Date;
   constructor()
   {
