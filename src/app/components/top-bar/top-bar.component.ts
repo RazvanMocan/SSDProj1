@@ -59,6 +59,13 @@ onLogin()
     this.log = 'Login';
     this.isAuthenticated = 0;
     console.log("aaasd");
+    const geturl = 'http://localhost:7070/api/logout';
+    this.http.get(geturl).subscribe(
+      (res: any[]) => {
+        console.log(res);
+      }
+    );
+
     this.callParentLog();
   }
   else {
@@ -89,8 +96,8 @@ onLogin()
     res => {
       console.log(res);
       const myurl = 'http://localhost:7070/api/loggedin';
-      this.http.get(url).subscribe(
-        res1 => {
+      this.http.get(myurl).subscribe(
+        (res1 :any) => {
 
           console.log(res1);
           if(res1 === null)
