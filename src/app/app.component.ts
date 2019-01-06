@@ -329,7 +329,12 @@ nextPg()
  }
  banUser(user)
  {
-   //some post somewhere (probably a link having user.userName) with user.isBanned set to True;
+   const geturl = 'http://localhost:7070/api/user/ban?userID=' + user.id;
+   this.http.get(geturl).subscribe(
+     (res: any[]) => {
+       console.log(res);
+     }
+   );
  }
 }
 
