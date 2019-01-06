@@ -69,7 +69,7 @@ onLogin()
     if (this.usid === 'Logged')
       if (this.pwd === 'in')
         this.showUser();
-    if (this.usid === 'user1')
+    if (this.usid === 'user1') {
       if (this.pwd === 'pwd1') {
         this.loggedInUser = 'Logged in as ' + this.usid;
         this.z1 = -15;
@@ -79,14 +79,39 @@ onLogin()
         this.getStyle();
         this.callParentLog();
       }
+    }
+
+
   }
   const url = `http://localhost:7070/api/user/login/${this.usid}`;
   const post = new HttpParams().set('password' , this.pwd);
   this.http.get(url, {params: post}).subscribe(
     res => {
       console.log(res);
+      const myurl = 'http://localhost:7070/api/loggedin';
+      this.http.get(url).subscribe(
+        res1 => {
+
+          console.log(res1);
+          if(res1 === null)
+            console.log('Bad user/pwd');
+
+          else
+          {
+            this.loggedInUser = 'Logged in as ' + res1.userName;
+            this.z1 = -15;
+            this.z2 = 0;
+            this.log = 'Logout';
+            this.isAuthenticated = 1;
+            this.getStyle();
+            this.callParentLog();
+          }            
+        }
+      );
     }
   );
+
+
 }
 
 
