@@ -14,9 +14,9 @@ export class TopBarComponent implements OnInit {
   @Output() myLogEvent = new EventEmitter<boolean>();
   @Output() myUsersEvent = new EventEmitter<string>();
   myAux = '';
-  callParentLog(something)
+  callParentLog()
   {
-    this.myLogEvent.emit(something);
+    this.myLogEvent.emit();
   }
   callParent() {
     this.myEvent.emit('eventDesc');
@@ -118,7 +118,7 @@ onLogin()
               this.log = 'Logout';
               this.isAuthenticated = 1;
               this.getStyle();
-              this.callParentLog(res1.isBanned);
+              this.callParentLog();
             }
           }
         }
