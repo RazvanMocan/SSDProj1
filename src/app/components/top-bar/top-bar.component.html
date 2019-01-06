@@ -5,15 +5,17 @@
 <input id="yourid" [(ngModel)]="usid"  [value]="usid" [style.z-index]="getStyle()" [style.opacity]="z2">
 <div id="loggedAs">{{loggedInUser}}</div>
 <input id="yourpass"  [(ngModel)]="pwd" [value]="pwd" [style.z-index]="getStyle()" [style.opacity]="z2">
-<div id="upload"><a href="https://en.wikipedia.org/wiki/Upload">Upload</a></div>
+<div id="upload"><a (click)="callParent4()" onclick="return false;" href="">Upload</a></div>
 
 <!--<div id="upload">
   <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".pdf,.doc,.docx">
 </div>
 -->
 <!--<div id="yourid1" [style.z-index]="getStyle()"></div>-->
-<div id="download"><a href="https://en.wikipedia.org/wiki/Download">Download</a></div>
+<div id="download"><a href="#downloadScroll">Download</a></div>
+<div id="downloadScroll"></div>
 <p id="myp1" [style.opacity]="z2">Id</p>
 <p id="myp2" [style.opacity]="z2">Pass</p>
+
 <!--<div id = "mightWork"></div>-->
 </body>

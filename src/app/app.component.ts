@@ -162,7 +162,7 @@ export class AppComponent {
 {
 
 
-  if ((this.regMail !== '') && (this.regId.length > 4) && (this.regId !== '') && (this.regPwd.length > 4) && (this.regPwd !== '') && (this.regMail === this.regPwd)){
+  if ((this.regMail !== '') && (this.regId.length > 4) && (this.regId !== '') && (this.regPwd.length > 4) && (this.regPwd !== '') && (this.regMail === this.regPwd)) {
     this.setOpacityBriefly();
     this.completeRegId = this.regId;
     this.completeRegPwd = this.regPwd;
@@ -170,16 +170,16 @@ export class AppComponent {
     this.regId = '';
     this.regPwd = '';
     this.regMail = '';
-  }
-  const url = this.url + `api/user/signup/${this.regId}`;
-  const post = new FormData();
-  post.append('password' , this.regPwd);
-  this.http.post(url, post).subscribe(
-    res => {
-      console.log(res);
-    }
-  );
 
+    const url = this.url + `api/user/signup/${this.regId}`;
+    const post = new FormData();
+    post.append('password', this.regPwd);
+    this.http.post(url, post).subscribe(
+      res => {
+        console.log(res);
+      }
+    );
+  }
 }
 getSuccessOpacity()
 {
@@ -205,6 +205,7 @@ setFakeStyle()
   }
 doRate( name )
 {
+  console.log(name.rating);
   const url = this.url + `api/rate?id=${1}&mark=${name.rating}`;
   this.http.get(url).subscribe(
     res  => {
@@ -262,10 +263,27 @@ nextPg()
       this.myMaxPages = res;
     }
   );
-  if(this.myPage < this.myMaxPages) {
+  if(this.myPage <= this.myMaxPages) {
   this.myPage += 1;
   }
 
 }
+ firstTiles(event)
+ {
+   console.log(event);
+   const geturl = 'http://localhost:7070/latest'; //probably will be 'http://localhost:7070/1'
+   this.http.get(geturl).subscribe(
+     (res: any[]) => {
+       console.log(res);
+       this.actualTiles = res;
+     }
+   );
+   console.log('Got tiles');
+ }
+ myUploadFct(event)
+ {
+   console.log(event);
+   this.setFakeStyle();
+ }
 }
 

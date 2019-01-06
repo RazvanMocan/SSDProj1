@@ -87,11 +87,26 @@ mat-slider
 }
 mat-button-toggle{
   position: absolute;
-  left:27%;
+  left:25%;
   top:62%;
   font-size: 28px;
   line-height: 5px;
   height:45px;
+  transition: 0.5s;
 
 }
-
+mat-button-toggle:hover{
+  color: white;
+  background-color: #2ECC40;
+  transition: 0.5s;
+}
+mat-button-toggle:active
+{
+  color: black;
+  transition: 0.15s;
+}
+#rateButt
+{
+  position: absolute;
+  left:60%;
+}

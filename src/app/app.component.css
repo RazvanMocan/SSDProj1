@@ -43,8 +43,13 @@ a {
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+  transition: color 0.6s;
 }
-
+a:hover
+{
+  color:black;
+  transition: 0.6s;
+}
 a:before,
 a:after {
   content: '';
@@ -119,6 +124,18 @@ mat-button-toggle
 {
   position: absolute;
   top:65%;
+  transition: 0.6s;
+}
+mat-button-toggle:hover
+{
+  color: white;
+  background-color: black;
+  transition: 0.6s;
+}
+mat-button-toggle:active
+{
+  color: #ff317b;
+  transition: 0.1s;
 }
 mat-icon{
   position: absolute;
@@ -154,8 +171,27 @@ app-top-bar:hover{
 #myp3
 {
   position: absolute;
-  left:48.5%;
-  top:4%;
+  left:46%;
+  top:1%;
+}
+#myp3bt
+{
+  background-color: #2ECC40;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition: 0.6s;
+}
+#myp3bt:hover
+{
+  background-color: white;
+  color: #2ECC40;
+  font-size: 20px;
+  transition: 0.6s;
 }
 #idnews
 {
@@ -231,27 +267,33 @@ app-user
   left:0%;
   top:48%;
   height:25px;
-  width: 57px;
+  width: 75px;
   line-height: 24px;
-  background-color: white;
+  background-color: black;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-user-select: none;
   user-select: none;
-  color:black;
+  color:#ff6058;
   transition: 1s;
-  border-radius: 3px;
+  border-top-right-radius: 20px 20px;
+  border-bottom-right-radius: 20px 20px;
+  font-weight: bold;
 
 }
 #registerComponent:hover
 {
   font-size:24px;
   width:140px;
-  background-color: green;
+  background-color: #ff6058;
   transition: 1s;
-  color:white;
-  border-radius: 6px;
+  color:black;
 
+}
+#registerComponent:active
+{
+  color:white;
+  transition: 0.1s;
 }
 #actualRegister
 {
@@ -262,6 +304,17 @@ app-user
   height:24%;
   background-color: #3b77ff;
   z-index: -5;
+  opacity: 0.1;
+  border-bottom-right-radius: 40px;
+  border-top-right-radius: 40px;
+  transition:opacity 1s;
+
+}
+#actualRegister:hover
+{
+  opacity:1;
+  transition: opacity 0.7s;
+
 }
 #registerId
 {
@@ -276,6 +329,11 @@ app-user
   color:white;
   background-color: black;
 }
+#registerId:active
+{
+  color: #ff317b;
+  transition: 0.1s;
+}
 #registerPwd
 {
   position: absolute;
@@ -284,6 +342,7 @@ app-user
   transition: 0.6s;
   border-radius: 10px;
 }
+
 #registerMail
 {
   position: absolute;
@@ -292,6 +351,7 @@ app-user
   transition: 0.6s;
   border-radius: 10px;
 }
+
 #registerMail:hover
 {
   color:white;
@@ -302,11 +362,21 @@ app-user
   color:white;
   background-color: black;
 }
+#registerPwd:active
+{
+  color: #ff317b;
+  transition: 0.1s;
+}
+#registerMail:active
+{
+  color: #ff317b;
+  transition: 0.1s;
+}
 #registerIdLabel
 {
   position: absolute;
   top:15%;
-  left:44%;
+  left:47%;
   font-family: arial, helvetica, serif;
   color: #0f0c29;
   font-size: 20px;
@@ -315,7 +385,7 @@ app-user
 {
   position: absolute;
   top: 45%;
-  left:44%;
+  left:47%;
   font-family: arial, helvetica, serif;
   color: #0f0c29;
   font-size: 20px;
@@ -325,7 +395,7 @@ app-user
   font-size: 20px;
   position: absolute;
   top:75%;
-  left:44%;
+  left:47%;
   font-family: arial, helvetica, serif;
 }
 #clickRegister
@@ -372,6 +442,18 @@ app-user
   background-color: black;
   transition: 0.6s;
 }
+#clickRegister:active
+{
+  background-color: black;
+  color:  #3b77ff;
+  transition: 0.1s;
+}
+#clickCloseRegister:active
+{
+  background-color: black;
+  color:  #3b77ff;
+  transition: 0.1s;
+}
 #successReg
 {
   position: absolute;
@@ -413,6 +495,16 @@ app-user
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  box-shadow: 3px 3px 1px  white;
+  transition: 0.6s;
+}
+#upButt:hover
+{
+  background-color: white;
+  color: #4CAF50;
+  box-shadow: 8px 8px 1px  #4CAF50;
+  transition: 0.6s;
+
 }
 #upChoose
 {
@@ -450,7 +542,17 @@ app-user
   left: 41%;
   color: black;
   background-color: #f5e6cc;
-
+  transition: 0.6s;
+}
+#but2:hover
+{
+  color: #f5e6cc;
+  background-color: black;
+  transition: 0.6s;
+}
+#but2:active{
+  color: #ff317b;
+  transition: 0.1s;
 }
 #getButton
 {
@@ -464,14 +566,55 @@ app-user
 {
   position:absolute;
   left:90%;
-  top:55%;
+  top:44.5%;
   width:5%;
   height:8%;
-  background-color: #0cd2e7;
+  background-color: #ff6058;
   text-align: center;
   font-size: 30px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  transition: 0.5s;
 }
+#nextPage:hover
+{
+  color: #0cd2e7;
+  background-color: black;
+  transition: 0.5s;
+}
+#nextPage:active
+{
+  color: #ff317b;
+  transition: 0.2s;
+}
+.arrow_box {
+  position: relative;
+  background: #0d13d5;
+  border: 4px solid #ff6058;
+}
+.arrow_box:after, .arrow_box:before {
+  left: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow_box:after {
+  border-color: rgba(13, 19, 213, 0);
+  border-left-color: black;
+  border-width: 30px;
+  margin-top: -30px;
+}
+.arrow_box:before {
+  border-color: rgba(47, 139, 245, 0);
+  border-left-color: transparent;
+  border-width: 36px;
+  margin-top: -36px;
+}
+
