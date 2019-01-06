@@ -135,6 +135,8 @@ export class AppComponent {
       this.fakeStyle = -20;
       this.registerStyle1 = -20;
       this.someoneLogged *= (-1);
+
+
       return -5;
   }
     return 5;
@@ -144,6 +146,12 @@ export class AppComponent {
     this.isAdmin=1;
     this.registerStyle1 = 5;
     this.someoneLogged = -1;
+    const geturl = 'http://localhost:7070/api/logout';
+    this.http.get(geturl).subscribe(
+      (res: any[]) => {
+        console.log(res);
+      }
+    );
   }
 
 

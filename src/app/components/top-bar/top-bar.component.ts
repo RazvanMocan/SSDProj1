@@ -103,16 +103,24 @@ onLogin()
           if(res1 === null)
             console.log('Bad user/pwd');
 
-          else
-          {
-            this.loggedInUser = 'Logged in as ' + res1.userName;
-            this.z1 = -15;
-            this.z2 = 0;
-            this.log = 'Logout';
-            this.isAuthenticated = 1;
-            this.getStyle();
-            this.callParentLog();
-          }            
+          else {
+            if (res1.admin === true) {
+            this.loggeduser = res1.userName;
+
+              //this.log = "Logout";
+              console.log(this.loggeduser);
+              this.isAuthenticated = 1;
+              this.callParent();
+            } else {
+              this.loggedInUser = 'Logged in as ' + res1.userName;
+              this.z1 = -15;
+              this.z2 = 0;
+              this.log = 'Logout';
+              this.isAuthenticated = 1;
+              this.getStyle();
+              this.callParentLog();
+            }
+          }
         }
       );
     }
