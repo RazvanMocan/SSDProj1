@@ -48,6 +48,7 @@ export class AppComponent {
   colsAndRows = 3;
   myPage = 1;
   myMaxPages = 1;
+  someoneLoggedBanned = false;
   randVar = 'http://www.thismanslife.co.uk';
   tiles = [
     {text: 'One', rating: 8, cols: 3, rows: 3, color: 'lightblue'},
@@ -87,8 +88,29 @@ export class AppComponent {
   onFileChanged(event) {
     this.selectedFile = <File>event.target.files[0];
   }
-  onUpload()
-  {
+  onUpload() {
+    const geturl = 'http://localhost:7070/api/banned';
+    this.http.get(geturl).subscribe(
+      (res1: any) => {
+        console.log(res1);
+        console.log(event);
+        if ((res1 === false) && (this.someoneLogged === 1)) {
+          const fd = new FormData();
+          fd.append('file', this.selectedFile, this.selectedFile.name);
+          this.http.post(this.url, fd).subscribe(
+            res => {
+              console.log(res);
+            }
+          );
+        }
+      }
+    );
+  }
+
+
+
+
+    /*
     if(this.someoneLogged === 1) {
       const fd = new FormData();
       fd.append('file', this.selectedFile, this.selectedFile.name);
@@ -99,6 +121,7 @@ export class AppComponent {
       );
     }
   }
+  */
   getStyle() {
   if (this.isAdmin === 0)
     return -5;
@@ -146,7 +169,7 @@ export class AppComponent {
     this.isAdmin=1;
     this.registerStyle1 = 5;
     this.someoneLogged = -1;
-    const geturl = 'http://localhost:7070/api/logout';
+    const geturl = 'http://localhost:7070/api/user/logout';
     this.http.get(geturl).subscribe(
       (res: any[]) => {
         console.log(res);
@@ -218,7 +241,13 @@ setFakeStyle()
   }
 doRate( name )
 {
-  if(this.someoneLogged === 1) {
+  const geturl = 'http://localhost:7070/api/banned';
+  this.http.get(geturl).subscribe(
+    (res1: any) => {
+      console.log(res1);
+      console.log(event);
+      if((res1 === false) && (this.someoneLogged ===1))
+  {
     console.log(name.rating);
     const url = this.url + `api/rate?id=${1}&mark=${name.rating}`;
     this.http.get(url).subscribe(
@@ -227,6 +256,10 @@ doRate( name )
       }
     );
   }
+    }
+  );
+
+
 }
 getObjects()
 {
@@ -262,17 +295,41 @@ getObjects()
   }
   doDl( name )
   {
-    window.open('http://localhost:7070/download?id=' + name.id);
+    const geturl = 'http://localhost:7070/api/banned';
+    this.http.get(geturl).subscribe(
+      (res: any) => {
+        console.log(res);
+        console.log(event);
+        if((res === false) && (this.someoneLogged ===1))
+          window.open('http://localhost:7070/download?id=' + name.id);
+      }
+    );
+
+
   }
   doNewsDl( name )
   {
-    if(this.someoneLogged === 1 )
-    window.open(name);
+    const geturl = 'http://localhost:7070/api/banned';
+    this.http.get(geturl).subscribe(
+      (res: any) => {
+        console.log(res);
+        console.log(event);
+        if((res === false) && (this.someoneLogged ===1))
+          window.open(name);
+      }
+    );
   }
   doNewDl( name )
 {
-  if(this.someoneLogged === 1)
-  window.open('http://localhost:7070/download?id=' + name.id);
+  const geturl = 'http://localhost:7070/api/banned';
+  this.http.get(geturl).subscribe(
+    (res: any) => {
+      console.log(res);
+      console.log(event);
+      if((res === false) && (this.someoneLogged ===1))
+        window.open('http://localhost:7070/download?id=' + name.id);
+    }
+  );
 }
 hello2(event)
 {
@@ -332,7 +389,7 @@ nextPg()
  }
  loggedIn(event)
  {
-   if(this.someoneLogged)
+   //if(this.someoneLogged)
    this.someoneLogged *= (-1);
  }
  banUser(user)

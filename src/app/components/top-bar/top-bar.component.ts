@@ -11,12 +11,12 @@ export class TopBarComponent implements OnInit {
   @Output() myEventForwarded = new EventEmitter<string>();
   @Output() myEventGetStartTiles = new EventEmitter<string>();
   @Output() myEventUpload = new EventEmitter<string>();
-  @Output() myLogEvent = new EventEmitter<string>();
+  @Output() myLogEvent = new EventEmitter<boolean>();
   @Output() myUsersEvent = new EventEmitter<string>();
   myAux = '';
-  callParentLog()
+  callParentLog(something)
   {
-    this.myLogEvent.emit('eventLog');
+    this.myLogEvent.emit(something);
   }
   callParent() {
     this.myEvent.emit('eventDesc');
@@ -118,7 +118,7 @@ onLogin()
               this.log = 'Logout';
               this.isAuthenticated = 1;
               this.getStyle();
-              this.callParentLog();
+              this.callParentLog(res1.isBanned);
             }
           }
         }
