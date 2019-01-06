@@ -134,7 +134,7 @@ export class AppComponent {
     {
       this.fakeStyle = -20;
       this.registerStyle1 = -20;
-      this.someoneLogged = 1;
+      this.someoneLogged *= (-1);
       return -5;
   }
     return 5;

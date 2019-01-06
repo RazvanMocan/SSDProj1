@@ -52,6 +52,8 @@ onLogin()
     this.z2 = 1;
     this.log = 'Login';
     this.isAuthenticated = 0;
+    console.log("aaasd");
+    this.callParentLog();
   }
   else {
 //this.usid="Logged";
