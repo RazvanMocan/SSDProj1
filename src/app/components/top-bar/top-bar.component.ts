@@ -59,7 +59,7 @@ onLogin()
     this.log = 'Login';
     this.isAuthenticated = 0;
     console.log("aaasd");
-    const geturl = 'http://localhost:7070/api/user/logout';
+    const geturl = 'https://haurtorrent.herokuapp.com/api/user/logout';
     this.http.get(geturl).subscribe(
       (res: any[]) => {
         console.log(res);
@@ -91,12 +91,12 @@ onLogin()
     }
 
 
-    const url = `http://localhost:7070/api/user/login/${this.usid}`;
+    const url = `https://haurtorrent.herokuapp.com/api/user/login/${this.usid}`;
     const post = new HttpParams().set('password', this.pwd);
     this.http.get(url, {params: post}).subscribe(
       res => {
         console.log(res);
-        const myurl = 'http://localhost:7070/api/loggedin';
+        const myurl = 'https://haurtorrent.herokuapp.com/api/loggedin';
         this.http.get(myurl).subscribe(
           (res1: any) => {
 

@@ -78,7 +78,7 @@ export class AppComponent {
   tile1 = new TileClass();
   rating = 1;
   selectedFile: File = null;
-  url = 'http://localhost:7070/';
+  url = 'https://haurtorrent.herokuapp.com/';
   public myVar: string;
   constructor(private http: HttpClient) {
   }
@@ -89,7 +89,7 @@ export class AppComponent {
     this.selectedFile = <File>event.target.files[0];
   }
   onUpload() {
-    const geturl = 'http://localhost:7070/api/banned';
+    const geturl = 'https://haurtorrent.herokuapp.com/api/banned';
     this.http.get(geturl).subscribe(
       (res1: any) => {
         console.log(res1);
@@ -169,7 +169,7 @@ export class AppComponent {
     this.isAdmin=1;
     this.registerStyle1 = 5;
     this.someoneLogged = -1;
-    const geturl = 'http://localhost:7070/api/user/logout';
+    const geturl = 'https://haurtorrent.herokuapp.com/api/user/logout';
     this.http.get(geturl).subscribe(
       (res: any[]) => {
         console.log(res);
@@ -241,7 +241,7 @@ setFakeStyle()
   }
 doRate( name )
 {
-  const geturl = 'http://localhost:7070/api/banned';
+  const geturl = 'https://haurtorrent.herokuapp.com/api/banned';
   this.http.get(geturl).subscribe(
     (res1: any) => {
       console.log(res1);
@@ -263,7 +263,7 @@ doRate( name )
 }
 getObjects()
 {
-  const geturl = 'http://localhost:7070/latest';
+  const geturl = 'https://haurtorrent.herokuapp.com/latest';
   this.http.get(geturl).subscribe(
     (res: any[]) => {
       console.log(res);
@@ -274,7 +274,7 @@ getObjects()
   getUserObjects()
   {
     console.log('Getting user objects');
-    const geturl = 'http://localhost:7070/api/all';
+    const geturl = 'https://haurtorrent.herokuapp.com/api/all';
     this.http.get(geturl).subscribe(
       (res: any[]) => {
         console.log(res);
@@ -284,7 +284,7 @@ getObjects()
   }
   getSearchedObjects(event)
   {
-    const geturl = 'http://localhost:7070/byname?name=' + event + '&page=1';
+    const geturl = 'https://haurtorrent.herokuapp.com/byname?name=' + event + '&page=1';
     this.http.get(geturl).subscribe(
       (res: any[]) => {
         console.log(res);
@@ -295,13 +295,13 @@ getObjects()
   }
   doDl( name )
   {
-    const geturl = 'http://localhost:7070/api/banned';
+    const geturl = 'https://haurtorrent.herokuapp.com/api/banned';
     this.http.get(geturl).subscribe(
       (res: any) => {
         console.log(res);
         console.log(event);
         if((res === false) && (this.someoneLogged === 1))
-          this.myWindowFct('http://localhost:7070/download?id=' + name.id);
+          this.myWindowFct('https://haurtorrent.herokuapp.com/download?id=' + name.id);
       }
     );
 
@@ -309,7 +309,7 @@ getObjects()
   }
   doNewsDl( name )
   {
-    const geturl = 'http://localhost:7070/api/banned';
+    const geturl = 'https://haurtorrent.herokuapp.com/api/banned';
     this.http.get(geturl).subscribe(
       (res: any) => {
         console.log(res);
@@ -321,13 +321,15 @@ getObjects()
   }
   doNewDl( name )
 {
-  const geturl = 'http://localhost:7070/api/banned';
+  const geturl = 'https://haurtorrent.herokuapp.com/api/banned';
   this.http.get(geturl).subscribe(
     (res: any) => {
       console.log(res);
       console.log(event);
-      if((res === false) && (this.someoneLogged === 1))
-        this.myWindowFct('http://localhost:7070/download?id=' + name.id);
+      console.log(this.someoneLogged);
+      if((res === false) && (this.someoneLogged === 1)) {
+        this.myWindowFct('https://haurtorrent.herokuapp.com/download?id=' + name.id);
+      }
     }
   );
   //console.log('ssa');
@@ -344,7 +346,7 @@ hello2(event)
 nextPg()
 {
 
-  const geturl1 = 'http://localhost:7070/pages' ;
+  const geturl1 = 'https://haurtorrent.herokuapp.com/pages' ;
   this.http.get(geturl1).subscribe(
     (res: number) => {
       console.log(res);
@@ -352,7 +354,7 @@ nextPg()
       if(this.myPage === this.myMaxPages)
       {
         this.myPage = 1;
-        const geturl = 'http://localhost:7070/' + this.myPage;
+        const geturl = 'https://haurtorrent.herokuapp.com/' + this.myPage;
         this.http.get(geturl).subscribe(
           (res: any[]) => {
             console.log(res);
@@ -362,7 +364,7 @@ nextPg()
       }
       if(this.myPage < this.myMaxPages) {
         this.myPage += 1;
-        const geturl = 'http://localhost:7070/' + this.myPage;
+        const geturl = 'https://haurtorrent.herokuapp.com/' + this.myPage;
         this.http.get(geturl).subscribe(
           (res: any[]) => {
             console.log(res);
@@ -378,7 +380,7 @@ nextPg()
  firstTiles(event)
  {
    console.log(event);
-   const geturl = 'http://localhost:7070/1'; //probably will be 'http://localhost:7070/1'
+   const geturl = 'https://haurtorrent.herokuapp.com/1'; //probably will be 'https://haurtorrent.herokuapp.com/1'
    this.http.get(geturl).subscribe(
      (res: any[]) => {
        console.log(res);
@@ -399,7 +401,7 @@ nextPg()
  }
  banUser(user)
  {
-   const geturl = 'http://localhost:7070/api/user/ban?userID=' + user.userName;
+   const geturl = 'https://haurtorrent.herokuapp.com/api/user/ban?userID=' + user.userName;
    this.http.get(geturl).subscribe(
      (res: any[]) => {
        console.log(res);
